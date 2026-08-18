@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rework for Advisors — One-pager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Mono&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --steel:#0E1013;--gun:#262C32;--seam:#48515A;--zinc:#6C747C;--paper:#F9F6F1;--white:#FFFFFF;
+    --orange:#F26B1D;--orange-dk:#C7540F;
+    --display:"Archivo",system-ui,sans-serif;--body:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#DDD9D0}
+  body{font-family:var(--body);color:var(--steel);font-size:11px;line-height:1.38;-webkit-font-smoothing:antialiased;padding:24px 0}
+  .page{
+    width:8.5in;min-height:11in;margin:0 auto;background:var(--white);
+    padding:.45in .55in .4in;position:relative;
+    box-shadow:0 10px 40px rgba(0,0,0,.18);
+  }
+  .toolbar{width:8.5in;margin:0 auto 14px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12px;color:var(--gun)}
+  .toolbar a{color:var(--gun);text-decoration:none;border-bottom:1px solid var(--gun)}
+  .toolbar button{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:12px;background:var(--orange);color:var(--steel);border:0;padding:9px 14px;cursor:pointer}
+  @media print{
+    html,body{background:#fff}
+    body{padding:0}
+    .toolbar{display:none}
+    .page{box-shadow:none;margin:0;width:auto;min-height:auto;padding:.35in .5in .3in}
+    @page{size:letter;margin:0}
+    .page,.foot,.cols{break-inside:avoid;page-break-inside:avoid}
+    html,body{height:auto;overflow:visible}
+    .foot{display:block}.foot .cta{display:none}
+  }
+
+  .spec{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--zinc)}
+  .spec.on{color:var(--orange-dk)}
+
+  .top{display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:2px solid var(--steel)}
+  .brand{display:flex;align-items:center}
+  .brand svg{width:200px;height:auto;display:block}
+  .top .right{text-align:right;font-family:var(--mono);font-size:10px;color:var(--zinc);line-height:1.6}
+
+  h1{font-family:var(--display);font-weight:900;font-stretch:78%;font-size:30px;line-height:.98;letter-spacing:-.02em;margin:12px 0 6px}
+  h1 em{font-style:normal;color:var(--orange)}
+  .lede{font-size:12.5px;color:#3E464E;max-width:6.6in;margin-bottom:12px}
+
+  .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}
+  h2{font-family:var(--display);font-weight:800;font-stretch:85%;font-size:12.5px;letter-spacing:.01em;text-transform:uppercase;margin:0 0 5px;padding-top:9px;border-top:1px solid #C9C6BE}
+  h2:first-child{padding-top:0;border-top:0}
+  p{margin-bottom:6px;color:#2E353C}
+  p b{font-weight:600;color:var(--steel)}
+  ul.dash{list-style:none;margin:2px 0 6px}
+  ul.dash li{padding-left:16px;position:relative;margin-bottom:3px;color:#2E353C}
+  ul.dash li::before{content:"";position:absolute;left:0;top:8px;width:9px;height:2.5px;background:var(--orange)}
+  ul.dash li b{font-weight:600;color:var(--steel)}
+
+  .card{border:2px solid var(--steel);background:var(--paper);font-family:var(--mono);font-size:9.5px;box-shadow:5px 5px 0 var(--orange);margin-bottom:10px}
+  .card .rh{display:flex;justify-content:space-between;padding:7px 11px;border-bottom:2px solid var(--steel);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+  .card table{width:100%;border-collapse:collapse}
+  .card td{padding:5px 10px;border-bottom:1px solid #C9C6BE;vertical-align:top}
+  .card td:first-child{font-weight:600;width:48%}
+  .card td:last-child{text-align:right}
+  .card tr:last-child td{border-bottom:0}
+  .card .big{font-family:var(--display);font-weight:900;font-stretch:85%;font-size:17px;letter-spacing:-.02em}
+  .card ul{list-style:none}
+  .card li{display:grid;grid-template-columns:14px 1fr;gap:8px;padding:5px 10px;border-bottom:1px solid #C9C6BE;line-height:1.4}
+  .card li:last-child{border-bottom:0}
+  .card .box{width:11px;height:11px;background:var(--orange);margin-top:2px}
+
+  .script{background:var(--steel);color:var(--paper);padding:10px 12px;margin:2px 0 8px;font-size:11px;line-height:1.5;border-left:4px solid var(--orange)}
+  .script .spec{color:#9AA3AB;display:block;margin-bottom:5px}
+
+  .foot{margin-top:10px;padding-top:8px;border-top:2px solid var(--steel);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:10px;color:var(--zinc)}
+  .foot b{color:var(--steel);font-weight:600}
+  .cta{display:inline-block;background:var(--orange);color:var(--steel);font-family:var(--display);font-weight:800;font-stretch:90%;text-transform:uppercase;letter-spacing:.03em;font-size:11px;padding:8px 12px;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="rework-homepage.html#advisors">← Back to Rework</a>
+  <button onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<div class="page">
+  <div class="top">
+    <div class="brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 200"  role="img" aria-label="REWORK by Ramp/Jet">
+  <title>REWORK — by Ramp/Jet</title>
+  <defs>
+    
+  </defs>
+  <path d="M 101.5 1.5 L 870.5 1.5 A 24 24 0 0 1 894.5 25.5 L 894.5 98.5 A 100 100 0 0 1 794.5 198.5 L 25.5 198.5 A 24 24 0 0 1 1.5 174.5 L 1.5 101.5 A 100 100 0 0 1 101.5 1.5 Z" fill="#F9F6F1" stroke="#F26B1D" stroke-width="3"></path>
+  <text x="143.7" y="130" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-size="84" letter-spacing="-3.36"><tspan font-weight="500" fill="#F26B1D">RE</tspan><tspan font-weight="900" fill="#0E1013">WORK</tspan></text>
+  <rect x="560.5" y="56" width="3" height="88" fill="#F26B1D" opacity="0.35"></rect>
+  <text x="595.5" y="87" font-family="'Space Mono', ui-monospace, Menlo, monospace" font-size="13" letter-spacing="4.42" fill="#8A7F72">BY</text>
+  <text x="595.5" y="123" font-family="'Space Mono', ui-monospace, Menlo, monospace" font-weight="700" font-size="31" letter-spacing="0.62" fill="#0E1013">RAMP<tspan fill="#F26B1D">/</tspan>JET</text>
+</svg></div>
+    <div class="right">Advisor one-pager · v1<br>reworkbyrampjet.com/advisors</div>
+  </div>
+
+  <div class="spec on" style="margin-top:14px">Rework for Advisors</div>
+  <h1>The website line item,<br>closed in <em>two days.</em></h1>
+  <p class="lede">For brokers, exit planners, CPAs, and M&amp;A counsel with a client whose site is a decade old. Rework rebuilds it at a flat price, holds it clean for however long the process takes, and hands the acquirer a documented Transfer Packet at close.</p>
+
+  <div class="cols">
+    <div>
+      <h2>Why it's on your list</h2>
+      <p>Everything else on the readiness list takes months: financials, contracts, concentration, management depth. The website can be finished this week, and it's the first thing a search fund or PE associate opens. A 2011 site is a signal about the rest of the building.</p>
+
+      <h2>What we tell your client, and what we don't</h2>
+      <ul class="dash">
+        <li><b>We don't say a website raises the multiple.</b> It doesn't, and you'd hear about it if we did.</li>
+        <li><b>We say it's a small, cheap chip</b> in the "runs without the owner" and "documented systems" columns, and it removes a first-impression risk with buyers who diligence from a laptop.</li>
+        <li><b>We say the digital footprint will be transferable</b> on day one, so nobody calls the seller about a domain renewal in month four.</li>
+      </ul>
+
+      <h2>How it runs</h2>
+      <ul class="dash">
+        <li><b>Day 1.</b> One 45-minute call with the owner. We write the copy and source the photos; the client reviews instead of produces.</li>
+        <li><b>Day 2.</b> Client marks up a link, we fix it, we switch the domain. Two revision rounds included.</li>
+        <li><b>Every quarter after.</b> A one-page inspection: what's working, what's broken, what competitors changed. Included, ongoing, no clock.</li>
+        <li><b>At close.</b> Transfer Packet to the acquirer, plus one handoff call. If the deal takes three years or never closes, nothing changes for your client.</li>
+      </ul>
+
+      <h2>Confidentiality</h2>
+      <p>Nothing about a Rework signals a sale. To customers, employees, and the internet it's a company updating its site. We never reference the transaction, we don't tag the client anywhere, and we work with you, not around you.</p>
+
+      <h2>How to hand it off</h2>
+      <div class="script">
+        <span class="spec">Suggested line to the client</span>
+        "Your website's on the list too. There's a group that rebuilds sites for companies like yours in two days for a flat $2,000, keeps an eye on it every quarter, and hands the buyer everything documented at close. One call, and it's off your desk. Want me to make the intro?"
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="rh"><span>Work order</span><span>Rework · Std.</span></div>
+        <table>
+          <tr><td>Turnaround</td><td><span class="big">2</span> days</td></tr>
+          <tr><td>Revisions</td><td><span class="big">2</span> rounds</td></tr>
+          <tr><td>Price</td><td><span class="big">$2,000</span> flat</td></tr>
+          <tr><td>Hosting</td><td>Included</td></tr>
+          <tr><td>Quarterly inspection</td><td>Included, ongoing</td></tr>
+          <tr><td>Transfer Packet at close</td><td>Included</td></tr>
+          <tr><td>Rework + Maintain</td><td>+ $200 / mo, cancel any month</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="rh"><span>Transfer packet</span><span>Contents</span></div>
+        <ul>
+          <li><span class="box"></span><span>Domain registrar access, in the company's name, renewals documented</span></li>
+          <li><span class="box"></span><span>Hosting and DNS, credentials recorded and transferable</span></li>
+          <li><span class="box"></span><span>Google Business Profile ownership, verified and correct</span></li>
+          <li><span class="box"></span><span>Analytics and Search Console, history intact</span></li>
+          <li><span class="box"></span><span>Site source files and current content inventory</span></li>
+          <li><span class="box"></span><span>Every quarterly inspection since the rework</span></li>
+          <li><span class="box"></span><span>One handoff call with the acquirer's team</span></li>
+        </ul>
+      </div>
+
+      <div class="card" style="box-shadow:5px 5px 0 var(--steel)">
+        <div class="rh"><span>Advisor terms</span><span>Pick one</span></div>
+        <table>
+          <tr><td>Referral fee</td><td>10% of the build</td></tr>
+          <tr><td>Or client credit</td><td>$200 off, in your name</td></tr>
+          <tr><td>Post-close</td><td>Acquirer may continue; same terms</td></tr>
+          <tr><td>Fit check</td><td>If Rework isn't right, we say so on the call</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div><b>Book a 20-minute call</b> · (000) 000-0000 · advisors@rampjet.com</div>
+    <a class="cta" href="rework-homepage.html#book">Book the call</a>
+  </div>
+</div>
+
+</body>
+</html>
