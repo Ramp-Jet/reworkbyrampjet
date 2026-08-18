@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rework by Rampjet — Your website, fixed in two days.</title>
+<meta name="description" content="Rework rebuilds outdated industrial websites in two days for a flat $2,000, then inspects them every quarter so they keep winning work.">
+<!-- Fonts are self-hosted (no third-party request). Preload only the three
+     faces that paint above the fold; preloading every weight would compete. -->
+<link rel="preload" href="fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{
+    font-family:'Archivo';
+    font-style:normal;
+    font-weight:700 900;
+    font-stretch:78% 90%;
+    font-display:swap;
+    src:url(fonts/archivo-var-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'IBM Plex Sans';
+    font-style:normal;
+    font-weight:400 600;
+    font-display:swap;
+    src:url(fonts/ibm-plex-sans-var-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'IBM Plex Mono';
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url(fonts/ibm-plex-mono-400-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'IBM Plex Mono';
+    font-style:normal;
+    font-weight:500;
+    font-display:swap;
+    src:url(fonts/ibm-plex-mono-500-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'IBM Plex Mono';
+    font-style:normal;
+    font-weight:600;
+    font-display:swap;
+    src:url(fonts/ibm-plex-mono-600-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'IBM Plex Mono';
+    font-style:normal;
+    font-weight:700;
+    font-display:swap;
+    src:url(fonts/ibm-plex-mono-700-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'Archivo';
+    font-style:normal;
+    font-weight:700 900;
+    font-stretch:78% 90%;
+    font-display:swap;
+    src:url(fonts/archivo-var-latin-ext.woff2) format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'IBM Plex Sans';
+    font-style:normal;
+    font-weight:400 600;
+    font-display:swap;
+    src:url(fonts/ibm-plex-sans-var-latin-ext.woff2) format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'IBM Plex Mono';
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url(fonts/ibm-plex-mono-400-latin-ext.woff2) format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'IBM Plex Mono';
+    font-style:normal;
+    font-weight:500;
+    font-display:swap;
+    src:url(fonts/ibm-plex-mono-500-latin-ext.woff2) format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'IBM Plex Mono';
+    font-style:normal;
+    font-weight:600;
+    font-display:swap;
+    src:url(fonts/ibm-plex-mono-600-latin-ext.woff2) format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'IBM Plex Mono';
+    font-style:normal;
+    font-weight:700;
+    font-display:swap;
+    src:url(fonts/ibm-plex-mono-700-latin-ext.woff2) format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  :root{
+    --steel:#0E1013;
+    --gun:#262C32;
+    --plate:#343B42;
+    --seam:#48515A;
+    --zinc:#9AA3AB;
+    --paper:#F9F6F1;
+    --white:#FFFFFF;
+    --orange:#F26B1D;
+    --orange-dk:#C7540F;
+    --display:"Archivo",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --max:1320px;
+
+    /* spacing scale — the values already in use, named */
+    --sp-1:4px;  --sp-2:8px;  --sp-3:12px; --sp-4:16px; --sp-5:22px;
+    --sp-6:28px; --sp-7:32px; --sp-8:44px; --sp-9:56px; --sp-10:88px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--steel);
+    color:var(--paper);
+    font-family:var(--body);
+    font-size:1.0625rem;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--sp-6)}
+
+  /* eyebrow / spec labels */
+  .spec{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--zinc);
+  }
+  .spec.on{color:var(--orange)}
+
+  /* NAV */
+  header{
+    border-bottom:1px solid var(--seam);
+    position:sticky;top:0;z-index:20;
+    background:rgba(27,31,35,.92);
+    backdrop-filter:blur(6px);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:92px;
+  }
+  .brand{display:flex;align-items:center}
+  .brand svg{width:290px;height:auto;display:block}
+  @media (max-width:760px){.brand svg{width:210px}}
+  @media (max-width:520px){.brand svg{width:168px}}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{font-size:0.9375rem;color:var(--zinc)}
+  .nav-links a:hover{color:var(--white)}
+  .nav-links a.btn{color:var(--steel)}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--orange);color:var(--steel);
+    font-family:var(--display);font-weight:800;font-stretch:90%;
+    font-size:0.9375rem;letter-spacing:.02em;text-transform:uppercase;
+    padding:14px 22px;border:0;cursor:pointer;
+    transition:background .15s;
+  }
+  .btn:hover{background:#FF7F35}
+  .btn.ghost{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 2px var(--seam)}
+  .btn.ghost:hover{box-shadow:inset 0 0 0 2px var(--zinc)}
+  .btn svg{width:16px;height:16px}
+  /* 1060: brand (290) + full link row (671) = 961px, +56 padding, + breathing room */
+  @media (max-width:1060px){.nav-links a:not(.btn){display:none}}
+
+  /* HERO */
+  .hero{
+    padding:var(--sp-10) 0 72px;
+    border-bottom:1px solid var(--seam);
+    position:relative;overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:var(--sp-9);align-items:end;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-weight:900;font-stretch:78%;
+    font-size:clamp(2.875rem,1.652rem + 5.219vw,6rem);
+    line-height:.94;letter-spacing:-.025em;
+    color:var(--white);
+    margin:18px 0 26px;
+  }
+  .hero h1 em{font-style:normal;color:var(--orange)}
+  .hero p.lede{
+    font-size:1.25rem;color:var(--zinc);max-width:560px;line-height:1.5;
+  }
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+  .hero-note{margin-top:18px;font-family:var(--mono);font-size:0.8125rem;color:var(--zinc)}
+
+  /* THE TRAVELER (signature) */
+  .traveler{
+    background:var(--paper);color:var(--steel);
+    border:2px solid var(--steel);
+    box-shadow:8px 8px 0 var(--orange);
+    font-family:var(--mono);
+    position:relative;
+  }
+  .traveler .head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:12px 16px;border-bottom:2px solid var(--steel);
+    font-size:0.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  }
+  .traveler .head span:last-child{color:var(--orange-dk)}
+  .traveler table{width:100%;border-collapse:collapse;font-size:0.875rem}
+  .traveler td{padding:12px 16px;border-bottom:1px solid #C9C6BE;vertical-align:top}
+  .traveler td:first-child{width:52%;font-weight:600}
+  .traveler td:last-child{text-align:right}
+  .traveler tr:last-child td{border-bottom:0}
+  .traveler .big{font-family:var(--display);font-weight:900;font-stretch:85%;font-size:1.75rem;letter-spacing:-.02em;line-height:1}
+  .traveler .stamp{
+    position:absolute;right:-14px;top:-18px;
+    transform:rotate(7deg);
+    border:3px solid var(--orange-dk);color:var(--orange-dk);
+    padding:6px 12px;font-weight:700;font-size:0.8125rem;letter-spacing:.14em;text-transform:uppercase;
+    background:var(--paper);
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr}
+    .traveler{margin-top:16px}
+  }
+
+  /* SECTIONS */
+  section{padding:var(--sp-10) 0;border-bottom:1px solid var(--seam)}
+  section.light{background:var(--paper);color:var(--steel)}
+  section.light .spec{color:#6C747C}
+  section.light .spec.on{color:var(--orange-dk)}
+  h2{
+    font-family:var(--display);font-weight:900;font-stretch:80%;
+    font-size:clamp(2.125rem,1.515rem + 2.604vw,3.5rem);line-height:1;letter-spacing:-.02em;
+    margin:14px 0 20px;
+  }
+  .light h2{color:var(--steel)}
+  .sub{font-size:1.1875rem;color:var(--zinc);max-width:640px}
+  .light .sub{color:#4C545C}
+
+  /* WHY */
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-9);align-items:start}
+  .why-list{list-style:none;display:grid;gap:22px;margin-top:8px}
+  .why-list li{
+    padding-left:26px;position:relative;font-size:1.125rem;line-height:1.5;color:var(--paper);
+  }
+  .why-list li::before{
+    content:"";position:absolute;left:0;top:11px;width:12px;height:3px;background:var(--orange);
+  }
+  .why-list li b{color:var(--white);font-weight:600}
+  .quote{
+    border-left:3px solid var(--orange);padding:6px 0 6px 22px;margin-top:40px;
+    font-size:1.25rem;line-height:1.45;color:var(--white);font-weight:500;
+  }
+  .quote small{display:block;margin-top:10px;font-family:var(--mono);font-size:0.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--zinc);font-weight:400}
+  @media (max-width:900px){.why-grid{grid-template-columns:1fr;gap:36px}}
+
+  /* PROCESS */
+  .route{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border:2px solid var(--steel);margin-top:var(--sp-8);background:var(--white);
+  }
+  .op{
+    padding:22px 22px 26px;border-right:2px solid var(--steel);
+    position:relative;min-height:220px;display:flex;flex-direction:column;
+  }
+  .op:last-child{border-right:0}
+  .op .n{
+    font-family:var(--mono);font-size:0.75rem;letter-spacing:.14em;text-transform:uppercase;color:#6C747C;
+    display:flex;justify-content:space-between;
+  }
+  .op .n b{color:var(--orange-dk);font-weight:600}
+  .op h3{
+    font-family:var(--display);font-weight:900;font-stretch:82%;
+    font-size:1.875rem;letter-spacing:-.02em;line-height:1;margin:14px 0 12px;color:var(--steel);
+  }
+  .op p{font-size:0.96875rem;line-height:1.5;color:#3E464E;flex:1}
+  .op .t{
+    margin-top:16px;font-family:var(--mono);font-size:0.8125rem;color:var(--steel);
+    padding-top:12px;border-top:1px dashed #B9B6AE;
+  }
+  .op.done h3::after{
+    content:"LIVE";
+    display:inline-block;margin-left:10px;vertical-align:middle;
+    font-family:var(--mono);font-size:0.6875rem;letter-spacing:.14em;
+    border:2px solid var(--orange-dk);color:var(--orange-dk);padding:3px 7px;transform:rotate(-4deg);
+  }
+  .clock{
+    display:flex;justify-content:space-between;margin-top:14px;
+    font-family:var(--mono);font-size:0.75rem;letter-spacing:.1em;text-transform:uppercase;color:#6C747C;
+  }
+  /* Card columns keyed to the CONTAINER, not the viewport: at 4-up the
+     copy fell to ~18ch in the mid range. 2-up until there's room. */
+  .route-wrap{container-type:inline-size}
+  @container (max-width:1100px){
+    .route{grid-template-columns:1fr 1fr}
+    .op:nth-child(2){border-right:0}
+    .op:nth-child(1),.op:nth-child(2){border-bottom:2px solid var(--steel)}
+  }
+  @container (max-width:560px){
+    .route{grid-template-columns:1fr}
+    .op{border-right:0;border-bottom:2px solid var(--steel);min-height:0}
+    .op:last-child{border-bottom:0}
+  }
+
+  /* BEFORE / AFTER */
+  .ba{
+    display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--seam);
+    border:1px solid var(--seam);margin-top:44px;
+  }
+  .pane{background:var(--gun);padding:0;position:relative;min-height:380px;display:flex;flex-direction:column}
+  .pane .tag{
+    position:absolute;top:14px;left:14px;z-index:2;
+    font-family:var(--mono);font-size:0.6875rem;letter-spacing:.14em;text-transform:uppercase;
+    padding:5px 9px;background:var(--steel);color:var(--zinc);border:1px solid var(--seam);
+  }
+  .pane.after .tag{background:var(--orange);color:var(--steel);border-color:var(--orange)}
+  .shot{
+    flex:1;background:var(--plate);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--zinc);font-family:var(--mono);font-size:0.8125rem;letter-spacing:.08em;
+    background-image:
+      linear-gradient(var(--seam) 1px,transparent 1px),
+      linear-gradient(90deg,var(--seam) 1px,transparent 1px);
+    background-size:24px 24px;
+  }
+  .pane.after .shot{background:var(--paper);color:#6C747C;
+    background-image:
+      linear-gradient(#D5D2CB 1px,transparent 1px),
+      linear-gradient(90deg,#D5D2CB 1px,transparent 1px);
+    background-size:24px 24px;}
+  .cap{padding:16px 18px;font-size:0.90625rem;color:var(--zinc);border-top:1px solid var(--seam)}
+  .cap b{color:var(--white);font-weight:600}
+  @media (max-width:760px){.ba{grid-template-columns:1fr}}
+
+  /* INSPECTION */
+  .insp-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  .report{
+    background:var(--white);color:var(--steel);border:2px solid var(--steel);
+    font-family:var(--mono);font-size:0.875rem;box-shadow:8px 8px 0 var(--steel);
+  }
+  .report .rh{
+    display:flex;justify-content:space-between;padding:12px 16px;
+    border-bottom:2px solid var(--steel);font-size:0.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  }
+  .report ul{list-style:none}
+  .report li{
+    display:grid;grid-template-columns:24px 1fr auto;gap:12px;
+    padding:12px 16px;border-bottom:1px solid #DAD7D0;align-items:start;line-height:1.45;
+  }
+  .report li:last-child{border-bottom:0}
+  .report .box{
+    width:16px;height:16px;border:2px solid var(--steel);margin-top:2px;
+  }
+  .report .box.x{background:var(--orange);border-color:var(--orange)}
+  .report .st{font-size:0.6875rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;padding-top:2px}
+  .report .st.fix{color:var(--orange-dk);font-weight:600}
+  .report .st.ok{color:#5E8A47;font-weight:600}
+  .insp-copy .sub{margin-bottom:22px}
+  .insp-copy p{color:#4C545C;font-size:1.0625rem;margin-bottom:16px;max-width:560px}
+  .insp-copy p b{color:var(--steel);font-weight:600}
+  @media (max-width:900px){.insp-grid{grid-template-columns:1fr;gap:40px}}
+
+  /* PRICE */
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--seam);border:1px solid var(--seam);margin-top:44px}
+  .card{background:var(--gun);padding:34px 32px 36px;display:flex;flex-direction:column}
+  .card.hi{background:var(--paper);color:var(--steel)}
+  .card .name{
+    font-family:var(--display);font-weight:900;font-stretch:82%;font-size:2.125rem;letter-spacing:-.02em;line-height:1;margin:10px 0 6px;
+  }
+  .card .amt{font-family:var(--mono);font-size:0.9375rem;color:var(--zinc);margin-bottom:22px}
+  .card.hi .amt{color:#6C747C}
+  .card .amt b{font-family:var(--display);font-weight:900;font-stretch:85%;font-size:2.375rem;color:var(--white);letter-spacing:-.02em;margin-right:8px}
+  .card.hi .amt b{color:var(--steel)}
+  .card ul{list-style:none;display:grid;gap:11px;flex:1;margin-bottom:26px}
+  .card li{padding-left:24px;position:relative;font-size:1rem;line-height:1.45;color:var(--paper)}
+  .card.hi li{color:#3E464E}
+  .card li::before{content:"";position:absolute;left:0;top:10px;width:12px;height:3px;background:var(--orange)}
+  .card .btn{align-self:flex-start}
+  .card.hi .btn.ghost{color:var(--steel);box-shadow:inset 0 0 0 2px var(--steel)}
+  @media (max-width:760px){.price-grid{grid-template-columns:1fr}}
+
+  /* ADVISORS */
+  .adv{background:var(--gun)}
+  .adv-head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end}
+  .adv-head .sub{color:var(--zinc)}
+  .adv-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+    background:var(--seam);border:1px solid var(--seam);margin-top:44px;
+  }
+  .adv-cell{background:var(--steel);padding:26px 24px 28px}
+  .adv-cell .spec{margin-bottom:12px}
+  .adv-cell h3{
+    font-family:var(--display);font-weight:800;font-stretch:85%;
+    font-size:1.375rem;letter-spacing:-.015em;line-height:1.1;color:var(--white);margin-bottom:10px;
+  }
+  .adv-cell p{font-size:0.96875rem;line-height:1.5;color:var(--zinc)}
+  .adv-cell p b{color:var(--paper);font-weight:600}
+  .packet{
+    margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;
+  }
+  .packet-list{
+    background:var(--paper);color:var(--steel);border:2px solid var(--steel);
+    box-shadow:8px 8px 0 var(--orange);font-family:var(--mono);font-size:0.875rem;
+  }
+  .packet-list .rh{
+    display:flex;justify-content:space-between;padding:12px 16px;border-bottom:2px solid var(--steel);
+    font-size:0.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  }
+  .packet-list ul{list-style:none}
+  .packet-list li{display:grid;grid-template-columns:24px 1fr;gap:12px;padding:11px 16px;border-bottom:1px solid #C9C6BE;line-height:1.45}
+  .packet-list li:last-child{border-bottom:0}
+  .packet-list .box{width:16px;height:16px;border:2px solid var(--steel);margin-top:2px;background:var(--orange);border-color:var(--orange)}
+  .packet-copy p{color:var(--zinc);font-size:1.0625rem;margin-bottom:16px;max-width:540px}
+  .packet-copy p b{color:var(--white);font-weight:600}
+  .adv-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+  .quiet{
+    margin-top:44px;padding:20px 24px;border:1px dashed var(--seam);
+    font-family:var(--mono);font-size:0.8125rem;line-height:1.6;color:var(--zinc);max-width:820px;
+  }
+  .quiet b{color:var(--paper);font-weight:600}
+  @media (max-width:900px){
+    .adv-head,.packet{grid-template-columns:1fr;gap:32px}
+    .adv-grid{grid-template-columns:1fr}
+  }
+
+  /* FAQ */
+  .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px 48px;margin-top:40px}
+  details{border-top:1px solid #C9C6BE;padding:18px 0}
+  summary{
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;
+    font-family:var(--display);font-weight:700;font-stretch:90%;font-size:1.1875rem;color:var(--steel);
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--mono);color:var(--orange-dk);font-size:1.375rem;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:12px;color:#4C545C;font-size:1rem;line-height:1.55;max-width:520px}
+  @media (max-width:760px){.faq{grid-template-columns:1fr}}
+
+  /* FINAL CTA */
+  .final{padding:100px 0;text-align:left}
+  .final h2{max-width:820px}
+  .final .row{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .final .row .spec{margin-left:8px}
+
+  /* FOOTER */
+  footer{padding:32px 0 44px;color:var(--zinc);font-size:0.875rem}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot .brand svg{width:200px}
+  .foot a:hover{color:var(--white)}
+
+  /* ---------- MOBILE REFINEMENTS ---------- */
+
+  /* Header: the CTA was wrapping to 3 lines and spilling out of the 78px bar */
+  @media (max-width:760px){
+    .nav{height:72px}
+    .nav-links .btn{white-space:nowrap;font-size:0.8125rem;padding:12px 16px}
+  }
+  @media (max-width:520px){
+    .wrap{padding:0 18px}
+    .nav-links .btn{font-size:0.75rem;padding:11px 14px;letter-spacing:0;min-height:44px}
+  }
+
+  /* Vertical rhythm: 88px section padding is too tall on a phone */
+  @media (max-width:760px){
+    section{padding:var(--sp-9) 0}
+    .hero{padding:48px 0 56px}
+    footer{padding:28px 0 36px}
+  }
+
+  /* Work-order stamp was clipping the "Rework · Std." card header text */
+  @media (max-width:520px){
+    .traveler{margin-top:36px}
+    .traveler .stamp{top:-32px;right:-6px;font-size:0.6875rem;padding:5px 9px;letter-spacing:.1em}
+  }
+
+  /* Tap targets: 44px minimum */
+  summary{min-height:44px}
+  footer a:not(.brand){display:inline-flex;align-items:center;min-height:44px}
+
+  /* Mobile section nav: horizontally scrollable chips, standing in for the
+     primary links hidden at 760px. No JS, nothing to open or close. */
+  .chipnav{display:none}
+  @media (max-width:1060px){
+    .chipnav{
+      display:block;
+      border-top:1px solid var(--seam);
+      overflow-x:auto;
+      overscroll-behavior-x:contain;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .chipnav::-webkit-scrollbar{display:none}
+    .chipnav-track{display:flex;gap:8px;width:max-content;padding:8px 18px}
+    .chipnav a{
+      flex:0 0 auto;display:inline-flex;align-items:center;min-height:44px;padding:0 14px;
+      font-family:var(--mono);font-size:0.75rem;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--zinc);border:1px solid var(--seam);white-space:nowrap;
+    }
+    .chipnav a:hover,.chipnav a:active{color:var(--white);border-color:var(--zinc)}
+  }
+
+  /* ---------- TYPE (2026 pass) ---------- */
+
+  /* Headings self-balance; this replaces the 6 hard <br> tags that used to
+     force identical line breaks at 375px and at 1320px. */
+  h1,h2,h3{text-wrap:balance}
+  /* balance only evens lines that already wrap; the old <br> tags were also
+     acting as the measure cap, so headings need one explicitly */
+  h2{max-width:700px}
+
+  /* Orphan control on running prose. Still Limited support (no Firefox),
+     so it is layered strictly as progressive enhancement. */
+  @supports (text-wrap:pretty){
+    p,li,summary,dd{text-wrap:pretty}
+  }
+
+  /* Anchor targets have to clear the sticky header */
+  section[id]{scroll-margin-top:106px}
+  @media (max-width:1060px){section[id]{scroll-margin-top:168px}}  /* 92 nav + 62 chips */
+  @media (max-width:760px){section[id]{scroll-margin-top:148px}}   /* 72 nav + 62 chips */
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Rework by Rampjet home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 200"  role="img" aria-label="REWORK by Ramp/Jet">
+  <title>REWORK — by Ramp/Jet</title>
+  <defs>
+    
+  </defs>
+  <path d="M 101.5 1.5 L 870.5 1.5 A 24 24 0 0 1 894.5 25.5 L 894.5 98.5 A 100 100 0 0 1 794.5 198.5 L 25.5 198.5 A 24 24 0 0 1 1.5 174.5 L 1.5 101.5 A 100 100 0 0 1 101.5 1.5 Z" fill="#F9F6F1" stroke="#F26B1D" stroke-width="3"></path>
+  <rect x="560.5" y="56" width="3" height="88" fill="#F26B1D" opacity="0.35"></rect>
+  <path fill="#F26B1D" d="M150.53 130.00V72.38H180.84Q186.98 72.38 191.01 74.54Q195.05 76.70 197.07 80.61Q199.09 84.52 199.09 89.74Q199.09 95.53 196.46 99.83Q193.84 104.14 189.07 106.16L201.10 130.00H190.85L179.94 107.76H159.90V130.00ZM159.90 99.85H180.04Q184.59 99.85 187.09 97.15Q189.59 94.45 189.59 89.72Q189.59 86.74 188.50 84.69Q187.41 82.63 185.30 81.52Q183.18 80.41 180.04 80.41H159.90ZM207.82 130.00V72.38H252.46V80.41H217.19V96.51H248.76V104.55H217.19V121.96H252.96V130.00Z"></path>
+  <path fill="#0E1013" d="M268.19 130.00 254.66 72.21H273.98L279.02 96.90Q279.19 97.58 279.44 98.96Q279.70 100.35 280.03 101.99Q280.37 103.62 280.62 104.97H280.96Q281.12 104.21 281.33 103.16Q281.54 102.11 281.75 101.02Q281.96 99.93 282.17 98.84Q282.38 97.74 282.55 96.90L287.51 72.21H305.82L311.11 96.90Q311.28 97.74 311.57 99.17Q311.87 100.60 312.20 102.15Q312.54 103.71 312.79 104.97H313.13Q313.30 104.13 313.51 103.08Q313.72 102.03 313.88 100.94Q314.05 99.84 314.26 98.79Q314.47 97.74 314.64 96.90L319.34 72.21H337.82L324.30 130.00H303.89L298.18 102.95Q298.01 101.86 297.67 100.39Q297.34 98.92 297.00 97.41Q296.66 95.90 296.41 94.80H296.08Q295.82 95.81 295.53 97.28Q295.24 98.75 294.90 100.22Q294.56 101.69 294.31 102.95L288.60 130.00ZM368.15 131.01Q358.32 131.01 351.35 127.65Q344.38 124.29 340.68 117.61Q336.98 110.93 336.98 101.10Q336.98 91.19 340.68 84.56Q344.38 77.92 351.35 74.56Q358.32 71.20 368.15 71.20Q378.06 71.20 385.03 74.56Q392.00 77.92 395.70 84.56Q399.40 91.19 399.40 101.10Q399.40 110.93 395.70 117.61Q392.00 124.29 385.03 127.65Q378.06 131.01 368.15 131.01ZM368.15 117.15Q371.17 117.15 373.48 116.18Q375.79 115.22 377.35 113.45Q378.90 111.69 379.66 109.21Q380.41 106.73 380.41 103.79V98.42Q380.41 95.48 379.66 93.00Q378.90 90.52 377.35 88.76Q375.79 86.99 373.48 86.03Q371.17 85.06 368.15 85.06Q365.12 85.06 362.81 86.03Q360.50 86.99 358.99 88.76Q357.48 90.52 356.72 93.00Q355.97 95.48 355.97 98.42V103.79Q355.97 106.73 356.72 109.21Q357.48 111.69 358.99 113.45Q360.50 115.22 362.81 116.18Q365.12 117.15 368.15 117.15ZM406.03 130.00V72.21H442.24Q448.70 72.21 453.03 74.81Q457.36 77.42 459.54 81.62Q461.72 85.82 461.72 90.69Q461.72 96.23 459.12 100.56Q456.52 104.88 452.06 107.49L463.40 130.00H442.57L433.75 110.60H424.60V130.00ZM424.60 97.74H437.62Q439.80 97.74 441.31 96.02Q442.82 94.30 442.82 91.44Q442.82 89.68 442.15 88.34Q441.48 86.99 440.30 86.19Q439.13 85.40 437.62 85.40H424.60ZM468.02 130.00V72.21H486.59V96.90L507.17 72.21H530.18L509.44 95.98L530.60 130.00H508.68L496.42 108.41L486.59 117.90V130.00Z"></path>
+  <path fill="#8A7F72" d="M596.24 87.00V85.99H597.02V78.91H596.24V77.90H599.92Q601.23 77.90 601.92 78.58Q602.61 79.25 602.61 80.27V80.42Q602.61 81.16 602.17 81.67Q601.73 82.18 601.08 82.36V82.52Q601.73 82.68 602.17 83.21Q602.61 83.74 602.61 84.47V84.62Q602.61 85.65 601.92 86.32Q601.23 87.00 599.92 87.00ZM598.11 81.93H599.88Q600.66 81.93 601.12 81.53Q601.57 81.12 601.57 80.42V80.34Q601.57 79.68 601.09 79.30Q600.61 78.91 599.84 78.91H598.11ZM598.11 85.99H599.84Q600.61 85.99 601.09 85.60Q601.57 85.22 601.57 84.54V84.47Q601.57 83.78 601.12 83.36Q600.66 82.94 599.88 82.94H598.11ZM611.31 87.00V83.80H611.07L608.23 77.90H609.45L611.78 82.87H611.93L614.26 77.90H615.48L612.63 83.80H612.40V87.00Z"></path>
+  <path fill="#0E1013" d="M597.76 123.00V101.30H606.07Q608.30 101.30 609.82 102.11Q611.34 102.91 612.12 104.26Q612.89 105.61 612.89 107.28V108.03Q612.89 109.36 612.16 110.52Q611.43 111.69 609.98 112.31V112.86Q611.06 112.99 611.70 113.70Q612.33 114.41 612.33 115.50V123.00H608.24V116.49Q608.24 115.75 607.85 115.28Q607.47 114.82 606.57 114.82H601.86V123.00ZM601.86 110.91H605.76Q607.25 110.91 608.02 110.20Q608.80 109.48 608.80 108.24V107.87Q608.80 106.79 608.02 106.00Q607.25 105.21 605.76 105.21H601.86ZM615.56 123.00 620.73 101.30H628.42L633.60 123.00H629.32L628.27 118.35H620.89L619.84 123.00ZM621.76 114.44H627.37L624.86 103.35H624.30ZM635.37 123.00V101.30H642.56L643.80 117.61V120.77H644.54V117.61L645.78 101.30H652.97V123.00H649.25V108.49L649.63 103.53H648.88L647.27 123.00H641.13L639.46 103.53H638.71L639.09 108.49V123.00ZM656.51 123.00V101.30H665.00Q667.23 101.30 668.71 102.21Q670.18 103.13 670.91 104.57Q671.64 106.01 671.64 107.59V108.34Q671.64 109.95 670.91 111.44Q670.18 112.92 668.71 113.87Q667.23 114.82 665.00 114.82H660.60V123.00ZM660.60 110.91H664.60Q665.96 110.91 666.75 110.17Q667.54 109.42 667.54 108.24V107.87Q667.54 106.69 666.75 105.95Q665.96 105.21 664.60 105.21H660.60Z"></path>
+  <path fill="#F26B1D" d="M680.50 126.88 676.94 125.76 686.24 97.42 689.77 98.54Z"></path>
+  <path fill="#0E1013" d="M702.64 123.43Q699.38 123.43 697.37 121.65Q695.35 119.87 695.35 116.49V114.44H699.44V116.49Q699.44 117.92 700.26 118.75Q701.09 119.59 702.51 119.59Q703.88 119.59 704.64 118.78Q705.39 117.98 705.39 116.49V105.14H703.16V101.30H711.35V105.14H709.49V116.49Q709.49 119.84 707.64 121.64Q705.80 123.43 702.64 123.43ZM715.59 123.00V101.30H729.30V105.21H719.69V110.17H728.92V114.07H719.69V119.09H729.67V123.00ZM740.08 123.00V105.21H734.32V101.30H749.94V105.21H744.18V123.00Z"></path>
+</svg></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#proof">Before &amp; after</a>
+      <a href="#inspection">Inspection</a>
+      <a href="#price">Price</a>
+      <a href="#advisors">For advisors</a>
+      <a class="btn" href="#book">Book the call</a>
+    </nav>
+  </div>
+  <nav class="chipnav" aria-label="Sections">
+    <div class="chipnav-track">
+      <a href="#how">How it works</a>
+      <a href="#proof">Before &amp; after</a>
+      <a href="#inspection">Inspection</a>
+      <a href="#price">Price</a>
+      <a href="#advisors">For advisors</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:1px solid var(--seam)">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="spec on">Websites for industrial companies</div>
+        <h1>Your website, fixed in <em>two days.</em></h1>
+        <p class="lede">Rework rebuilds the outdated site your buyers see today into one that wins work. Fixed price. Fixed timeline. No four-month project.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#book">Book the call
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+          </a>
+          <a class="btn ghost" href="#proof">See a rework</a>
+        </div>
+        <div class="hero-note">The clock starts on the first call. Most sites go live before the second one.</div>
+      </div>
+
+      <div class="traveler" aria-label="Work order summarizing the offer">
+        <div class="stamp">Flat rate</div>
+        <div class="head"><span>Work order</span><span>Rework · Std.</span></div>
+        <table>
+          <tr><td>Turnaround</td><td><span class="big">2</span> days</td></tr>
+          <tr><td>Revisions</td><td><span class="big">2</span> rounds</td></tr>
+          <tr><td>Price</td><td><span class="big">$2,000</span></td></tr>
+          <tr><td>Hosting</td><td>Included</td></tr>
+          <tr><td>Quarterly inspection</td><td>Included, ongoing</td></tr>
+          <tr><td>Rework needed?</td><td>Yes → <b>Book the call</b></td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section>
+    <div class="wrap why-grid">
+      <div>
+        <div class="spec">Why this exists</div>
+        <h2>The site was fine in 2011.</h2>
+        <p class="sub">A buyer at a company you've never heard of just searched for what you make. They found you. They looked for eight seconds. Then they called somebody else.</p>
+      </div>
+      <div>
+        <ul class="why-list">
+          <li><b>Buyers changed. Sites didn't.</b> The engineer sourcing your part is 34 and evaluates you on a phone before anyone picks up one.</li>
+          <li><b>Nobody in the building can touch it.</b> The nephew who built it moved to Denver. The login is on a sticky note that got thrown out.</li>
+          <li><b>The last web project hurt.</b> It ran long, ran over, and ended with a site you still had to fix yourself.</li>
+          <li><b>It matters more than it looks like it does.</b> Younger buyers, new hires, a bank, a broker, a buyer for the business — they all check the site first.</li>
+        </ul>
+        <div class="quote">
+          "We didn't need a web project. We needed the website to stop being a problem."
+          <small>Owner, precision machining · 42 employees</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="light" id="how">
+    <div class="wrap route-wrap">
+      <div class="spec">How it works</div>
+      <h2>Four operations. Two days.</h2>
+      <p class="sub">The build runs like a job in your shop: a routing, a schedule, and a sign-off. You have one call and two reviews. We do the rest.</p>
+
+      <div class="route">
+        <div class="op">
+          <div class="n"><span>Op 10</span><b>Day 1 · AM</b></div>
+          <h3>Call</h3>
+          <p>Forty-five minutes. We ask what you make, who buys it, and what the site has to do. Bring your logo if you have one. If you don't, we work from the sign on the building.</p>
+          <div class="t">Your time: 45 min</div>
+        </div>
+        <div class="op">
+          <div class="n"><span>Op 20</span><b>Day 1 · PM</b></div>
+          <h3>Build</h3>
+          <p>We write the copy, source the photos, and build the site on modern hosting. Capabilities, equipment, industries served, certifications, how to get a quote.</p>
+          <div class="t">Your time: none</div>
+        </div>
+        <div class="op">
+          <div class="n"><span>Op 30</span><b>Day 2 · AM</b></div>
+          <h3>Review</h3>
+          <p>You get a link. Mark up whatever's wrong. We fix it. That's revision one. If it needs a second pass, we do that too. Two rounds are included.</p>
+          <div class="t">Your time: 20 min</div>
+        </div>
+        <div class="op done">
+          <div class="n"><span>Op 40</span><b>Day 2 · PM</b></div>
+          <h3>Live</h3>
+          <p>We point your domain at the new site and switch it on. Same address your customers already know. Old site retired.</p>
+          <div class="t">Your time: a phone call to say go</div>
+        </div>
+      </div>
+      <div class="clock"><span>Start: first call</span><span>Finish: 48 hours later</span></div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section id="proof">
+    <div class="wrap">
+      <div class="spec on">Before &amp; after</div>
+      <h2>Same company. Same address. New site.</h2>
+      <p class="sub">Nothing about the business changed. What buyers see did.</p>
+
+      <div class="ba">
+        <div class="pane before">
+          <span class="tag">Before</span>
+          <div class="shot">[ Screenshot: existing site ]</div>
+          <div class="cap"><b>Built 2011.</b> Not readable on a phone. Capabilities page lists two machines sold in 2019. Contact form went to an inbox nobody checks.</div>
+        </div>
+        <div class="pane after">
+          <span class="tag">After · 2 days</span>
+          <div class="shot">[ Screenshot: rework ]</div>
+          <div class="cap"><b>Live in 48 hours.</b> Current equipment list, quote request routed to the right person, loads in under a second, and the phone number is right on Google.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSPECTION -->
+  <section class="light" id="inspection">
+    <div class="wrap insp-grid">
+      <div class="report" aria-label="Sample quarterly inspection">
+        <div class="rh"><span>Quarterly inspection</span><span>Q3 · Sample</span></div>
+        <ul>
+          <li><span class="box x"></span><span>Site up, loads in 0.8s, no broken links.</span><span class="st ok">Pass</span></li>
+          <li><span class="box x"></span><span>Google listing phone number matches site.</span><span class="st ok">Pass</span></li>
+          <li><span class="box"></span><span>Capabilities page still shows the Haas VF-2 you sold in March.</span><span class="st fix">Fix</span></li>
+          <li><span class="box"></span><span>Two competitors now list ISO 9001 on their homepage. You are certified but don't say so.</span><span class="st fix">Fix</span></li>
+          <li><span class="box x"></span><span>Quote requests this quarter: 11. Last quarter: 6.</span><span class="st ok">Note</span></li>
+          <li><span class="box"></span><span>Search: "swiss machining [your city]" — you're not on page one. Two ways to change that.</span><span class="st fix">Opp.</span></li>
+        </ul>
+      </div>
+      <div class="insp-copy">
+        <div class="spec">Every quarter, forever</div>
+        <h2>We keep looking at it so you don't have to.</h2>
+        <p class="sub">Every three months you get a one-page inspection of your site. Plain English. What's working, what's broken, what your competitors did that you haven't.</p>
+        <p><b>It's included with every Rework, and it doesn't stop.</b> Not a subscription, not a trial. As long as the site is up, we inspect it.</p>
+        <p><b>Fix it yourself, or have us do it.</b> Every item comes with what it would take. Small fixes are a flat fee. Bigger moves — new pages, new markets, getting found — are a conversation.</p>
+        <p><b>Why free?</b> Because a site that's right for two years and wrong for the next eight isn't fixed. And because we'd rather earn the next job than bill for the check-up.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section id="price">
+    <div class="wrap">
+      <div class="spec on">Price</div>
+      <h2>Two ways to run it.</h2>
+      <p class="sub">Both start with the same two-day Rework. The difference is who takes care of it afterward.</p>
+
+      <div class="price-grid">
+        <div class="card hi">
+          <div class="spec">Standard</div>
+          <div class="name">Rework</div>
+          <div class="amt"><b>$2,000</b> one time</div>
+          <ul>
+            <li>Full site rebuilt in two days from the first call</li>
+            <li>Two rounds of revisions</li>
+            <li>Copy written, photos sourced, domain switched over</li>
+            <li>Hosting included, no monthly fee</li>
+            <li>Quarterly inspection, ongoing</li>
+            <li>Changes after launch: flat-fee per item, or do them yourself</li>
+          </ul>
+          <a class="btn" href="#book">Book the call</a>
+        </div>
+        <div class="card">
+          <div class="spec">Standard + Maintenance</div>
+          <div class="name">Rework + Maintain</div>
+          <div class="amt"><b>$2,000</b> + $200 / mo</div>
+          <ul>
+            <li>Everything in Rework</li>
+            <li>We make the changes: new equipment, new hires, new certs, new photos</li>
+            <li>Inspection items fixed for you, no per-item fee</li>
+            <li>One request at a time, turned around in two business days</li>
+            <li>Cancel any month; the site is yours either way</li>
+          </ul>
+          <a class="btn ghost" href="#book">Book the call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVISORS -->
+  <section class="adv" id="advisors">
+    <div class="wrap">
+      <div class="adv-head">
+        <div>
+          <div class="spec on">Rework for Advisors</div>
+          <h2>The line item on your readiness list that's usually skipped.</h2>
+        </div>
+        <p class="sub">Brokers, exit planners, CPAs, M&amp;A counsel: you have a "get the house in order" list. Every item on it takes months except one. Rework closes it in two days, then holds it clean until close and hands it off after.</p>
+      </div>
+
+      <div class="adv-grid">
+        <div class="adv-cell">
+          <div class="spec">What it is</div>
+          <h3>A visible win in week one</h3>
+          <p>Financials, contracts, and management depth take a year to fix. The website takes two days. Your client sees something change immediately, which buys patience for everything else on the list.</p>
+        </div>
+        <div class="adv-cell">
+          <div class="spec">What it isn't</div>
+          <h3>Not a multiple play</h3>
+          <p>We won't tell your client a website raises their valuation. It doesn't. <b>It's a small, cheap chip in the "runs without the owner" and "documented systems" columns,</b> and it removes a first-impression risk with buyers who diligence from a laptop.</p>
+        </div>
+        <div class="adv-cell">
+          <div class="spec">Who's looking</div>
+          <h3>Search funds and PE are 35</h3>
+          <p>The most active buyers in manufacturing, distribution, and B2B services right now evaluate on a screen before they visit. A 2011 site is a signal, and it's a signal about everything else in the building.</p>
+        </div>
+      </div>
+
+      <div class="packet">
+        <div class="packet-copy">
+          <div class="spec">At close</div>
+          <h2>The Transfer Packet.</h2>
+          <p>When the deal closes, the acquirer gets the whole digital footprint on paper: everything in the company's name, every login, every quarterly inspection since the rework.</p>
+          <p><b>You get to say "the digital side is accounted for" in diligence and mean it.</b> Your client, who's usually staying on through the transition, doesn't get called about a domain renewal in month four.</p>
+          <p><b>The Packet is included.</b> Rework runs on your client's timeline and hands off whenever it closes.</p>
+          <div class="adv-cta">
+            <a class="btn" href="#book">Book a 20-minute call</a>
+            <a class="btn ghost" href="rework-advisor-one-pager.html">Download the advisor one-pager</a>
+          </div>
+        </div>
+        <div class="packet-list" aria-label="Contents of the Transfer Packet">
+          <div class="rh"><span>Transfer packet</span><span>Contents</span></div>
+          <ul>
+            <li><span class="box"></span><span>Domain registrar access, in the company's name, renewal dates documented</span></li>
+            <li><span class="box"></span><span>Hosting and DNS, credentials recorded and transferable</span></li>
+            <li><span class="box"></span><span>Google Business Profile ownership, verified and correct</span></li>
+            <li><span class="box"></span><span>Analytics and Search Console, with history intact</span></li>
+            <li><span class="box"></span><span>Site source files and current content inventory</span></li>
+            <li><span class="box"></span><span>Every quarterly inspection since the rework</span></li>
+            <li><span class="box"></span><span>One handoff call with the acquirer's team</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quiet">
+        <b>On confidentiality:</b> nothing about a Rework signals a sale. To customers, employees, and the internet, it's a company updating its website. We never mention the transaction, we don't tag the client anywhere, and we work with you, not around you. <b>On fees:</b> brokers can take a 10% referral. Advisors who can't accept fees can direct it as a $200 credit to the client, in your name.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="light">
+    <div class="wrap">
+      <div class="spec on">Straight answers</div>
+      <h2>What people ask on the call.</h2>
+      <div class="faq">
+        <details>
+          <summary>Two days? Really?</summary>
+          <p>Yes. The clock starts when the first call ends. It works because we don't wait on you: we write the copy, we find the photos, and you review instead of produce. If you want to supply your own copy and photos, you can, but it isn't required and it doesn't change the price.</p>
+        </details>
+        <details>
+          <summary>What if I want more changes than two rounds?</summary>
+          <p>Extra rounds are a flat $250 each. In practice almost nobody needs a third. If we got it that wrong on the call, that's on us and we'll say so.</p>
+        </details>
+        <details>
+          <summary>Who owns the site?</summary>
+          <p>You do. The domain stays in your name, the site files are yours, and if you ever want to leave we hand everything over. No hostage situations.</p>
+        </details>
+        <details>
+          <summary>What's the catch on the "forever" inspection?</summary>
+          <p>Only that the site has to still be up and we have to be able to see it. If you move it somewhere we can't reach or the domain lapses, we can't inspect it. That's the whole caveat.</p>
+        </details>
+        <details>
+          <summary>We already have a site. Can you just fix it?</summary>
+          <p>Usually it's faster and cheaper to rebuild than to repair a site from a decade ago, which is why the price is the price. If yours is recent and mostly good, we'll tell you on the call and point you somewhere else.</p>
+        </details>
+        <details>
+          <summary>Is this a template?</summary>
+          <p>It's a structure that works for industrial companies, filled with your equipment, your capabilities, your photos, your people. Your competitors won't have the same site because they don't have the same shop.</p>
+        </details>
+        <details>
+          <summary>I'm an advisor. What if the deal takes three years, or never closes?</summary>
+          <p>Nothing changes for your client. They got a working site for $2,000 and a free inspection every quarter. The Transfer Packet is ready whenever it's needed, and if it's never needed, they still have a site that's right. There's no clock on our end.</p>
+        </details>
+        <details>
+          <summary>Can the buyer keep using you after close?</summary>
+          <p>Yes, and they usually do. Same site, same inspection, same maintenance option. The acquirer inherits a known quantity instead of a mystery, and we're the people who already know where everything is.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final" id="book" style="border-bottom:0">
+    <div class="wrap">
+      <div class="spec on">Book the call</div>
+      <h2>Forty-five minutes. Then it's off your desk.</h2>
+      <p class="sub">Pick a time that works. If Rework isn't the right fix for your site, we'll tell you on the call and you'll have lost nothing but the coffee.</p>
+      <div class="row">
+        <a class="btn" href="#">Pick a time
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+        </a>
+        <span class="spec">or call (000) 000-0000</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top" aria-label="Rework by Rampjet"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 200"  role="img" aria-label="REWORK by Ramp/Jet">
+  <title>REWORK — by Ramp/Jet</title>
+  <defs>
+    
+  </defs>
+  <path d="M 101.5 1.5 L 870.5 1.5 A 24 24 0 0 1 894.5 25.5 L 894.5 98.5 A 100 100 0 0 1 794.5 198.5 L 25.5 198.5 A 24 24 0 0 1 1.5 174.5 L 1.5 101.5 A 100 100 0 0 1 101.5 1.5 Z" fill="#F9F6F1" stroke="#F26B1D" stroke-width="3"></path>
+  <rect x="560.5" y="56" width="3" height="88" fill="#F26B1D" opacity="0.35"></rect>
+  <path fill="#F26B1D" d="M150.53 130.00V72.38H180.84Q186.98 72.38 191.01 74.54Q195.05 76.70 197.07 80.61Q199.09 84.52 199.09 89.74Q199.09 95.53 196.46 99.83Q193.84 104.14 189.07 106.16L201.10 130.00H190.85L179.94 107.76H159.90V130.00ZM159.90 99.85H180.04Q184.59 99.85 187.09 97.15Q189.59 94.45 189.59 89.72Q189.59 86.74 188.50 84.69Q187.41 82.63 185.30 81.52Q183.18 80.41 180.04 80.41H159.90ZM207.82 130.00V72.38H252.46V80.41H217.19V96.51H248.76V104.55H217.19V121.96H252.96V130.00Z"></path>
+  <path fill="#0E1013" d="M268.19 130.00 254.66 72.21H273.98L279.02 96.90Q279.19 97.58 279.44 98.96Q279.70 100.35 280.03 101.99Q280.37 103.62 280.62 104.97H280.96Q281.12 104.21 281.33 103.16Q281.54 102.11 281.75 101.02Q281.96 99.93 282.17 98.84Q282.38 97.74 282.55 96.90L287.51 72.21H305.82L311.11 96.90Q311.28 97.74 311.57 99.17Q311.87 100.60 312.20 102.15Q312.54 103.71 312.79 104.97H313.13Q313.30 104.13 313.51 103.08Q313.72 102.03 313.88 100.94Q314.05 99.84 314.26 98.79Q314.47 97.74 314.64 96.90L319.34 72.21H337.82L324.30 130.00H303.89L298.18 102.95Q298.01 101.86 297.67 100.39Q297.34 98.92 297.00 97.41Q296.66 95.90 296.41 94.80H296.08Q295.82 95.81 295.53 97.28Q295.24 98.75 294.90 100.22Q294.56 101.69 294.31 102.95L288.60 130.00ZM368.15 131.01Q358.32 131.01 351.35 127.65Q344.38 124.29 340.68 117.61Q336.98 110.93 336.98 101.10Q336.98 91.19 340.68 84.56Q344.38 77.92 351.35 74.56Q358.32 71.20 368.15 71.20Q378.06 71.20 385.03 74.56Q392.00 77.92 395.70 84.56Q399.40 91.19 399.40 101.10Q399.40 110.93 395.70 117.61Q392.00 124.29 385.03 127.65Q378.06 131.01 368.15 131.01ZM368.15 117.15Q371.17 117.15 373.48 116.18Q375.79 115.22 377.35 113.45Q378.90 111.69 379.66 109.21Q380.41 106.73 380.41 103.79V98.42Q380.41 95.48 379.66 93.00Q378.90 90.52 377.35 88.76Q375.79 86.99 373.48 86.03Q371.17 85.06 368.15 85.06Q365.12 85.06 362.81 86.03Q360.50 86.99 358.99 88.76Q357.48 90.52 356.72 93.00Q355.97 95.48 355.97 98.42V103.79Q355.97 106.73 356.72 109.21Q357.48 111.69 358.99 113.45Q360.50 115.22 362.81 116.18Q365.12 117.15 368.15 117.15ZM406.03 130.00V72.21H442.24Q448.70 72.21 453.03 74.81Q457.36 77.42 459.54 81.62Q461.72 85.82 461.72 90.69Q461.72 96.23 459.12 100.56Q456.52 104.88 452.06 107.49L463.40 130.00H442.57L433.75 110.60H424.60V130.00ZM424.60 97.74H437.62Q439.80 97.74 441.31 96.02Q442.82 94.30 442.82 91.44Q442.82 89.68 442.15 88.34Q441.48 86.99 440.30 86.19Q439.13 85.40 437.62 85.40H424.60ZM468.02 130.00V72.21H486.59V96.90L507.17 72.21H530.18L509.44 95.98L530.60 130.00H508.68L496.42 108.41L486.59 117.90V130.00Z"></path>
+  <path fill="#8A7F72" d="M596.24 87.00V85.99H597.02V78.91H596.24V77.90H599.92Q601.23 77.90 601.92 78.58Q602.61 79.25 602.61 80.27V80.42Q602.61 81.16 602.17 81.67Q601.73 82.18 601.08 82.36V82.52Q601.73 82.68 602.17 83.21Q602.61 83.74 602.61 84.47V84.62Q602.61 85.65 601.92 86.32Q601.23 87.00 599.92 87.00ZM598.11 81.93H599.88Q600.66 81.93 601.12 81.53Q601.57 81.12 601.57 80.42V80.34Q601.57 79.68 601.09 79.30Q600.61 78.91 599.84 78.91H598.11ZM598.11 85.99H599.84Q600.61 85.99 601.09 85.60Q601.57 85.22 601.57 84.54V84.47Q601.57 83.78 601.12 83.36Q600.66 82.94 599.88 82.94H598.11ZM611.31 87.00V83.80H611.07L608.23 77.90H609.45L611.78 82.87H611.93L614.26 77.90H615.48L612.63 83.80H612.40V87.00Z"></path>
+  <path fill="#0E1013" d="M597.76 123.00V101.30H606.07Q608.30 101.30 609.82 102.11Q611.34 102.91 612.12 104.26Q612.89 105.61 612.89 107.28V108.03Q612.89 109.36 612.16 110.52Q611.43 111.69 609.98 112.31V112.86Q611.06 112.99 611.70 113.70Q612.33 114.41 612.33 115.50V123.00H608.24V116.49Q608.24 115.75 607.85 115.28Q607.47 114.82 606.57 114.82H601.86V123.00ZM601.86 110.91H605.76Q607.25 110.91 608.02 110.20Q608.80 109.48 608.80 108.24V107.87Q608.80 106.79 608.02 106.00Q607.25 105.21 605.76 105.21H601.86ZM615.56 123.00 620.73 101.30H628.42L633.60 123.00H629.32L628.27 118.35H620.89L619.84 123.00ZM621.76 114.44H627.37L624.86 103.35H624.30ZM635.37 123.00V101.30H642.56L643.80 117.61V120.77H644.54V117.61L645.78 101.30H652.97V123.00H649.25V108.49L649.63 103.53H648.88L647.27 123.00H641.13L639.46 103.53H638.71L639.09 108.49V123.00ZM656.51 123.00V101.30H665.00Q667.23 101.30 668.71 102.21Q670.18 103.13 670.91 104.57Q671.64 106.01 671.64 107.59V108.34Q671.64 109.95 670.91 111.44Q670.18 112.92 668.71 113.87Q667.23 114.82 665.00 114.82H660.60V123.00ZM660.60 110.91H664.60Q665.96 110.91 666.75 110.17Q667.54 109.42 667.54 108.24V107.87Q667.54 106.69 666.75 105.95Q665.96 105.21 664.60 105.21H660.60Z"></path>
+  <path fill="#F26B1D" d="M680.50 126.88 676.94 125.76 686.24 97.42 689.77 98.54Z"></path>
+  <path fill="#0E1013" d="M702.64 123.43Q699.38 123.43 697.37 121.65Q695.35 119.87 695.35 116.49V114.44H699.44V116.49Q699.44 117.92 700.26 118.75Q701.09 119.59 702.51 119.59Q703.88 119.59 704.64 118.78Q705.39 117.98 705.39 116.49V105.14H703.16V101.30H711.35V105.14H709.49V116.49Q709.49 119.84 707.64 121.64Q705.80 123.43 702.64 123.43ZM715.59 123.00V101.30H729.30V105.21H719.69V110.17H728.92V114.07H719.69V119.09H729.67V123.00ZM740.08 123.00V105.21H734.32V101.30H749.94V105.21H744.18V123.00Z"></path>
+</svg></a>
+    <div>© 2026 Rampjet · Websites for industrial companies · <a href="#">Rampjet.com</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
