@@ -329,13 +329,13 @@
   }
   .pane{background:var(--gun);padding:0;position:relative;min-height:380px;display:flex;flex-direction:column}
   .pane .tag{
-    position:absolute;top:14px;left:14px;z-index:2;
+    position:absolute;bottom:14px;left:14px;z-index:2;
     font-family:var(--mono);font-size:0.6875rem;letter-spacing:.14em;text-transform:uppercase;
     padding:5px 9px;background:var(--steel);color:var(--zinc);border:1px solid var(--seam);
   }
   .pane.after .tag{background:var(--orange);color:var(--steel);border-color:var(--orange)}
   .shot{
-    flex:none;aspect-ratio:16/10;background:var(--plate);
+    flex:none;aspect-ratio:16/10;position:relative;background:var(--plate);
     display:flex;align-items:center;justify-content:center;
     color:var(--zinc);font-family:var(--mono);font-size:0.8125rem;letter-spacing:.08em;
   }
@@ -702,8 +702,8 @@
 
       <div class="ba">
         <div class="pane before">
-          <span class="tag">Before</span>
           <div class="shot live">
+            <span class="tag">Before</span>
             <picture>
               <source srcset="img/before-flextram-full.webp" type="image/webp">
               <img src="img/before-flextram-full.jpg" width="1200" height="2229"
@@ -713,8 +713,8 @@
           <div class="cap"><b>Built years ago.</b> Customers expect more.</div>
         </div>
         <div class="pane after">
-          <span class="tag">After · 2 days</span>
           <div class="shot live">
+            <span class="tag">After · 2 days</span>
             <picture>
               <source srcset="img/after-flextram-full.webp" type="image/webp">
               <img src="img/after-flextram-full.jpg" width="1200" height="3763"
