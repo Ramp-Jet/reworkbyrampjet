@@ -335,20 +335,42 @@
   }
   .pane.after .tag{background:var(--orange);color:var(--steel);border-color:var(--orange)}
   .shot{
-    flex:1;background:var(--plate);
+    flex:none;aspect-ratio:16/10;background:var(--plate);
     display:flex;align-items:center;justify-content:center;
     color:var(--zinc);font-family:var(--mono);font-size:0.8125rem;letter-spacing:.08em;
+  }
+  /* grid-paper placeholder, only where there is no real page to show */
+  .shot:not(.live){
     background-image:
       linear-gradient(var(--seam) 1px,transparent 1px),
       linear-gradient(90deg,var(--seam) 1px,transparent 1px);
     background-size:24px 24px;
   }
-  .pane.after .shot{background:var(--paper);color:#6C747C;
+  .pane.after .shot:not(.live){background:var(--paper);color:#6C747C;
     background-image:
       linear-gradient(#D5D2CB 1px,transparent 1px),
       linear-gradient(90deg,#D5D2CB 1px,transparent 1px);
     background-size:24px 24px;}
-  .cap{padding:16px 18px;font-size:0.90625rem;color:var(--zinc);border-top:1px solid var(--seam)}
+  /* a real page, scrolled slowly, in place of a static shot */
+  .shot.live{
+    display:block;padding:0;overflow:hidden;min-height:0;
+    background:var(--plate);background-image:none;
+  }
+  .shot.live picture{display:block;width:100%;height:100%}
+  .shot.live img{
+    display:block;width:100%;height:100%;
+    object-fit:cover;object-position:center top;
+    animation:pagescroll 40s linear infinite alternate;
+  }
+  /* hold at the top and bottom, constant speed in between */
+  @keyframes pagescroll{
+    0%,8%{object-position:center top}
+    92%,100%{object-position:center bottom}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .shot.live img{animation:none}
+  }
+  .cap{flex:1;padding:16px 18px;font-size:0.90625rem;color:var(--zinc);border-top:1px solid var(--seam)}
   .cap b{color:var(--white);font-weight:600}
   @media (max-width:760px){.ba{grid-template-columns:1fr}}
 
@@ -681,13 +703,25 @@
       <div class="ba">
         <div class="pane before">
           <span class="tag">Before</span>
-          <div class="shot">[ Screenshot: existing site ]</div>
-          <div class="cap"><b>Built 2011.</b> Not readable on a phone. Capabilities page lists two machines sold in 2019. Contact form went to an inbox nobody checks.</div>
+          <div class="shot live">
+            <picture>
+              <source srcset="img/before-flextram-full.webp" type="image/webp">
+              <img src="img/before-flextram-full.jpg" width="1200" height="2229"
+                   alt="The previous FlexTram homepage, scrolling top to bottom: one page with a hero photo, three feature cards, a short paragraph, a row of client logos, and a contact form.">
+            </picture>
+          </div>
+          <div class="cap"><b>Built years ago.</b> Customers expect more.</div>
         </div>
         <div class="pane after">
           <span class="tag">After · 2 days</span>
-          <div class="shot">[ Screenshot: rework ]</div>
-          <div class="cap"><b>Live in 48 hours.</b> Current equipment list, quote request routed to the right person, loads in under a second, and the phone number is right on Google.</div>
+          <div class="shot live">
+            <picture>
+              <source srcset="img/after-flextram-full.webp" type="image/webp">
+              <img src="img/after-flextram-full.jpg" width="1200" height="3763"
+                   alt="The rebuilt FlexTram homepage, scrolling top to bottom: a video hero, capability cards, a photo gallery, client logos, a customer testimonial, and a contact section with two booking options.">
+            </picture>
+          </div>
+          <div class="cap"><b>Live in 48 hours.</b> Proof up front, not buried.</div>
         </div>
       </div>
     </div>
