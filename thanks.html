@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanks — Rework by Rampjet</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{
+    font-family:'Archivo';
+    font-style:normal;
+    font-weight:700 900;
+    font-stretch:78% 90%;
+    font-display:swap;
+    src:url(fonts/archivo-var-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'IBM Plex Sans';
+    font-style:normal;
+    font-weight:400 600;
+    font-display:swap;
+    src:url(fonts/ibm-plex-sans-var-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'IBM Plex Mono';
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url(fonts/ibm-plex-mono-400-latin.woff2) format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  :root{
+    --steel:#0E1013; --seam:#48515A; --zinc:#9AA3AB;
+    --paper:#F9F6F1; --orange:#F26B1D;
+    --display:"Archivo",system-ui,sans-serif;
+    --body:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--steel);color:var(--paper);font-family:var(--body);
+    min-height:100vh;display:flex;flex-direction:column;
+    padding:40px 24px;
+  }
+  .wrap{width:100%;max-width:680px;margin:auto}
+  .logo{display:block;width:190px;margin-bottom:52px}
+  .logo svg{width:100%;height:auto;display:block}
+  .spec{
+    font-family:var(--mono);font-size:0.6875rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--orange);margin-bottom:18px;
+  }
+  h1{
+    font-family:var(--display);font-weight:900;font-stretch:88%;
+    font-size:clamp(2.1rem,6vw,3.25rem);line-height:1.03;
+    letter-spacing:-.015em;margin-bottom:20px;
+  }
+  p{color:var(--zinc);font-size:1.0625rem;line-height:1.6;max-width:52ch}
+  p + p{margin-top:14px}
+  .back{
+    display:inline-flex;align-items:center;gap:10px;margin-top:40px;
+    background:var(--orange);color:var(--steel);text-decoration:none;
+    font-family:var(--display);font-weight:800;font-stretch:90%;
+    font-size:0.9375rem;letter-spacing:.02em;text-transform:uppercase;
+    padding:14px 22px;transition:background .15s;
+  }
+  .back:hover{background:#FF7F35}
+  .back svg{width:16px;height:16px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 200"  role="img" aria-label="REWORK by Ramp/Jet">
+  <title>REWORK — by Ramp/Jet</title>
+  <defs>
+    
+  </defs>
+  <path d="M 101.5 1.5 L 870.5 1.5 A 24 24 0 0 1 894.5 25.5 L 894.5 98.5 A 100 100 0 0 1 794.5 198.5 L 25.5 198.5 A 24 24 0 0 1 1.5 174.5 L 1.5 101.5 A 100 100 0 0 1 101.5 1.5 Z" fill="#F9F6F1" stroke="#F26B1D" stroke-width="3"></path>
+  <rect x="560.5" y="56" width="3" height="88" fill="#F26B1D" opacity="0.35"></rect>
+  <path fill="#F26B1D" d="M150.53 130.00V72.38H180.84Q186.98 72.38 191.01 74.54Q195.05 76.70 197.07 80.61Q199.09 84.52 199.09 89.74Q199.09 95.53 196.46 99.83Q193.84 104.14 189.07 106.16L201.10 130.00H190.85L179.94 107.76H159.90V130.00ZM159.90 99.85H180.04Q184.59 99.85 187.09 97.15Q189.59 94.45 189.59 89.72Q189.59 86.74 188.50 84.69Q187.41 82.63 185.30 81.52Q183.18 80.41 180.04 80.41H159.90ZM207.82 130.00V72.38H252.46V80.41H217.19V96.51H248.76V104.55H217.19V121.96H252.96V130.00Z"></path>
+  <path fill="#0E1013" d="M268.19 130.00 254.66 72.21H273.98L279.02 96.90Q279.19 97.58 279.44 98.96Q279.70 100.35 280.03 101.99Q280.37 103.62 280.62 104.97H280.96Q281.12 104.21 281.33 103.16Q281.54 102.11 281.75 101.02Q281.96 99.93 282.17 98.84Q282.38 97.74 282.55 96.90L287.51 72.21H305.82L311.11 96.90Q311.28 97.74 311.57 99.17Q311.87 100.60 312.20 102.15Q312.54 103.71 312.79 104.97H313.13Q313.30 104.13 313.51 103.08Q313.72 102.03 313.88 100.94Q314.05 99.84 314.26 98.79Q314.47 97.74 314.64 96.90L319.34 72.21H337.82L324.30 130.00H303.89L298.18 102.95Q298.01 101.86 297.67 100.39Q297.34 98.92 297.00 97.41Q296.66 95.90 296.41 94.80H296.08Q295.82 95.81 295.53 97.28Q295.24 98.75 294.90 100.22Q294.56 101.69 294.31 102.95L288.60 130.00ZM368.15 131.01Q358.32 131.01 351.35 127.65Q344.38 124.29 340.68 117.61Q336.98 110.93 336.98 101.10Q336.98 91.19 340.68 84.56Q344.38 77.92 351.35 74.56Q358.32 71.20 368.15 71.20Q378.06 71.20 385.03 74.56Q392.00 77.92 395.70 84.56Q399.40 91.19 399.40 101.10Q399.40 110.93 395.70 117.61Q392.00 124.29 385.03 127.65Q378.06 131.01 368.15 131.01ZM368.15 117.15Q371.17 117.15 373.48 116.18Q375.79 115.22 377.35 113.45Q378.90 111.69 379.66 109.21Q380.41 106.73 380.41 103.79V98.42Q380.41 95.48 379.66 93.00Q378.90 90.52 377.35 88.76Q375.79 86.99 373.48 86.03Q371.17 85.06 368.15 85.06Q365.12 85.06 362.81 86.03Q360.50 86.99 358.99 88.76Q357.48 90.52 356.72 93.00Q355.97 95.48 355.97 98.42V103.79Q355.97 106.73 356.72 109.21Q357.48 111.69 358.99 113.45Q360.50 115.22 362.81 116.18Q365.12 117.15 368.15 117.15ZM406.03 130.00V72.21H442.24Q448.70 72.21 453.03 74.81Q457.36 77.42 459.54 81.62Q461.72 85.82 461.72 90.69Q461.72 96.23 459.12 100.56Q456.52 104.88 452.06 107.49L463.40 130.00H442.57L433.75 110.60H424.60V130.00ZM424.60 97.74H437.62Q439.80 97.74 441.31 96.02Q442.82 94.30 442.82 91.44Q442.82 89.68 442.15 88.34Q441.48 86.99 440.30 86.19Q439.13 85.40 437.62 85.40H424.60ZM468.02 130.00V72.21H486.59V96.90L507.17 72.21H530.18L509.44 95.98L530.60 130.00H508.68L496.42 108.41L486.59 117.90V130.00Z"></path>
+  <path fill="#8A7F72" d="M596.24 87.00V85.99H597.02V78.91H596.24V77.90H599.92Q601.23 77.90 601.92 78.58Q602.61 79.25 602.61 80.27V80.42Q602.61 81.16 602.17 81.67Q601.73 82.18 601.08 82.36V82.52Q601.73 82.68 602.17 83.21Q602.61 83.74 602.61 84.47V84.62Q602.61 85.65 601.92 86.32Q601.23 87.00 599.92 87.00ZM598.11 81.93H599.88Q600.66 81.93 601.12 81.53Q601.57 81.12 601.57 80.42V80.34Q601.57 79.68 601.09 79.30Q600.61 78.91 599.84 78.91H598.11ZM598.11 85.99H599.84Q600.61 85.99 601.09 85.60Q601.57 85.22 601.57 84.54V84.47Q601.57 83.78 601.12 83.36Q600.66 82.94 599.88 82.94H598.11ZM611.31 87.00V83.80H611.07L608.23 77.90H609.45L611.78 82.87H611.93L614.26 77.90H615.48L612.63 83.80H612.40V87.00Z"></path>
+  <path fill="#0E1013" d="M597.76 123.00V101.30H606.07Q608.30 101.30 609.82 102.11Q611.34 102.91 612.12 104.26Q612.89 105.61 612.89 107.28V108.03Q612.89 109.36 612.16 110.52Q611.43 111.69 609.98 112.31V112.86Q611.06 112.99 611.70 113.70Q612.33 114.41 612.33 115.50V123.00H608.24V116.49Q608.24 115.75 607.85 115.28Q607.47 114.82 606.57 114.82H601.86V123.00ZM601.86 110.91H605.76Q607.25 110.91 608.02 110.20Q608.80 109.48 608.80 108.24V107.87Q608.80 106.79 608.02 106.00Q607.25 105.21 605.76 105.21H601.86ZM615.56 123.00 620.73 101.30H628.42L633.60 123.00H629.32L628.27 118.35H620.89L619.84 123.00ZM621.76 114.44H627.37L624.86 103.35H624.30ZM635.37 123.00V101.30H642.56L643.80 117.61V120.77H644.54V117.61L645.78 101.30H652.97V123.00H649.25V108.49L649.63 103.53H648.88L647.27 123.00H641.13L639.46 103.53H638.71L639.09 108.49V123.00ZM656.51 123.00V101.30H665.00Q667.23 101.30 668.71 102.21Q670.18 103.13 670.91 104.57Q671.64 106.01 671.64 107.59V108.34Q671.64 109.95 670.91 111.44Q670.18 112.92 668.71 113.87Q667.23 114.82 665.00 114.82H660.60V123.00ZM660.60 110.91H664.60Q665.96 110.91 666.75 110.17Q667.54 109.42 667.54 108.24V107.87Q667.54 106.69 666.75 105.95Q665.96 105.21 664.60 105.21H660.60Z"></path>
+  <path fill="#F26B1D" d="M680.50 126.88 676.94 125.76 686.24 97.42 689.77 98.54Z"></path>
+  <path fill="#0E1013" d="M702.64 123.43Q699.38 123.43 697.37 121.65Q695.35 119.87 695.35 116.49V114.44H699.44V116.49Q699.44 117.92 700.26 118.75Q701.09 119.59 702.51 119.59Q703.88 119.59 704.64 118.78Q705.39 117.98 705.39 116.49V105.14H703.16V101.30H711.35V105.14H709.49V116.49Q709.49 119.84 707.64 121.64Q705.80 123.43 702.64 123.43ZM715.59 123.00V101.30H729.30V105.21H719.69V110.17H728.92V114.07H719.69V119.09H729.67V123.00ZM740.08 123.00V105.21H734.32V101.30H749.94V105.21H744.18V123.00Z"></path>
+</svg></span>
+    <div class="spec">Message sent</div>
+    <h1>Got it. We'll read it today.</h1>
+    <p>You'll hear back from a person, usually within one business day. If it's
+       quicker to just talk, book a time and skip the back and forth.</p>
+    <a class="back" href="https://calendly.com/joseph-rampjet/30min" target="_blank" rel="noopener">Book the call
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+    </a>
+    <p style="margin-top:34px"><a href="/" style="color:var(--zinc)">Back to the site</a></p>
+  </div>
+</body>
+</html>
