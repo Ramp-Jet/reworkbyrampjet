@@ -1,7 +1,9 @@
 # Rework by Rampjet
 
 Marketing site for Rework — a fixed-price, two-day website rebuild for
-industrial companies. Static HTML/CSS, no build step and no JavaScript.
+industrial companies. Static HTML/CSS, no build step, and no build-time or
+third-party JavaScript. The one script on the page is about 1KB inline, and
+only upgrades the contact form; everything else is HTML and CSS.
 
 - `index.html` — homepage
 - `rework-advisor-one-pager.html` — one-pager for M&A advisors
@@ -32,7 +34,7 @@ Regenerating them requires `fonttools`; the ranges are recorded in the
 The proof section shows two real pages scrolling in place: the client's old
 site and the rebuilt one. Each is a single full-page screenshot, clipped to a
 16:10 window and panned top to bottom with a CSS `object-position` animation.
-No JavaScript, and the motion stops under `prefers-reduced-motion`.
+No JavaScript involved, and the motion stops under `prefers-reduced-motion`.
 
 Regenerate a shot with `tools/capture-site.py` (needs Chrome and Pillow):
 
@@ -77,3 +79,23 @@ stylesheets and images made it out of the archive. It is worth taking two or
 three and comparing them: the giveaway for a run that missed its CSS is
 content sitting flush against the viewport edge instead of inside the page's
 container.
+
+## Contact form
+
+The form in the booking section posts to Formspree. It is a plain HTML form
+first: with no JavaScript it posts, and Formspree's `_next` field sends the
+browser back to `thanks.html` rather than leaving people on Formspree's own
+confirmation page.
+
+The inline script upgrades that. It intercepts the submit, posts the same
+form with `Accept: application/json` so Formspree answers instead of
+redirecting, and swaps the form for a confirmation in place — no navigation,
+no page load. If the request fails for any reason, including a non-2xx
+response, it calls `form.submit()` and lets the browser do it the ordinary
+way, so a message is never lost to a failed fetch.
+
+That means the confirmation exists twice, once inline and once as
+`thanks.html`, and both need editing if the wording changes. Keeping the
+plain-post path is what makes the form work in a browser with JavaScript
+turned off, and what catches the case where Formspree is reachable by
+navigation but the fetch fails.

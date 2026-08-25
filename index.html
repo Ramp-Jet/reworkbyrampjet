@@ -504,6 +504,15 @@
   .nform input::placeholder,.nform textarea::placeholder{color:#6B747D}
   .nform input:focus,.nform textarea:focus{outline:0;border-color:var(--orange)}
   .nform .gotcha{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  [hidden]{display:none!important}
+  .nform-err{margin-top:14px;color:#FF8A5C;font-size:0.9375rem}
+  .nform-done{border-top:1px solid var(--seam);padding-top:26px}
+  .nform-done h3{
+    font-family:var(--display);font-weight:900;font-stretch:88%;
+    font-size:1.75rem;line-height:1.1;letter-spacing:-.01em;margin-bottom:12px;
+  }
+  .nform-done p{color:var(--zinc);line-height:1.6}
+  .nform-done:focus{outline:0}
 
   /* FOOTER */
   footer{padding:32px 0 44px;color:var(--zinc);font-size:0.875rem}
@@ -930,26 +939,77 @@
           </div>
         </div>
 
-        <form class="nform" action="https://formspree.io/f/myegregk" method="POST">
-          <div class="spec" style="margin-bottom:18px">Or send a note</div>
-          <label for="f-email">Your email</label>
-          <input id="f-email" type="email" name="email" required
-                 autocomplete="email" placeholder="you@yourcompany.com">
-          <label for="f-notes">Your site, and what's wrong with it</label>
-          <textarea id="f-notes" name="notes" rows="4" required
-                    placeholder="Paste your web address, and anything you want us to know."></textarea>
-          <input type="hidden" name="_subject" value="Rework — enquiry from the site">
-          <input type="hidden" name="_next" value="https://reworkbyrampjet.com/thanks.html">
-          <input class="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button class="btn" type="submit">Send it
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
-          </button>
-        </form>
+        <div class="notewrap">
+          <form class="nform" id="noteform" action="https://formspree.io/f/myegregk" method="POST">
+            <div class="spec" style="margin-bottom:18px">Or send a note</div>
+            <label for="f-email">Your email</label>
+            <input id="f-email" type="email" name="email" required
+                   autocomplete="email" placeholder="you@yourcompany.com">
+            <label for="f-notes">Your site, and what's wrong with it</label>
+            <textarea id="f-notes" name="notes" rows="4" required
+                      placeholder="Paste your web address, and anything you want us to know."></textarea>
+            <input type="hidden" name="_subject" value="Rework — enquiry from the site">
+            <!-- only used if the browser posts the form the old way -->
+            <input type="hidden" name="_next" value="https://reworkbyrampjet.com/thanks.html">
+            <input class="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn" type="submit"><span class="btn-label">Send it</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 8h11M9 4l4 4-4 4"/></svg>
+            </button>
+            <p class="nform-err" id="noteerr" hidden role="alert"></p>
+          </form>
+          <div class="nform-done" id="notedone" hidden tabindex="-1">
+            <div class="spec" style="margin-bottom:18px">Message sent</div>
+            <h3>Got it. We'll read it today.</h3>
+            <p>You'll hear back from a person, usually within one business day.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
+
+<!-- The form is a working HTML form on its own: without this script it posts
+     to Formspree and comes back to thanks.html. This only upgrades that to
+     an in-place confirmation, and hands back to the plain post if anything
+     goes wrong. -->
+<script>
+(function(){
+  var form = document.getElementById('noteform');
+  if (!form || !window.fetch || !window.FormData) return;
+
+  var done  = document.getElementById('notedone');
+  var err   = document.getElementById('noteerr');
+  var btn   = form.querySelector('button');
+  var label = form.querySelector('.btn-label');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.hidden = true;
+    btn.disabled = true;
+    label.textContent = 'Sending';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (res) {
+      if (!res.ok) throw new Error(res.status);
+      form.hidden = true;
+      done.hidden = false;
+      done.focus();
+    }).catch(function () {
+      // Let the browser do it the ordinary way rather than lose the message.
+      btn.disabled = false;
+      label.textContent = 'Send it';
+      err.textContent = 'That did not send. Trying again the long way\u2026';
+      err.hidden = false;
+      form.submit();
+    });
+  });
+})();
+</script>
+
 
 <footer>
   <div class="wrap foot">
