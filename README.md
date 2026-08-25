@@ -36,8 +36,8 @@ No JavaScript, and the motion stops under `prefers-reduced-motion`.
 
 Regenerate a shot with `tools/capture-site.py` (needs Chrome and Pillow):
 
-    python3 tools/capture-site.py https://www.flextram.com/ \
-        --out img/after-flextram-full --video-time 35.6 --hide .calc-toast
+    python3 tools/capture-site.py https://www.fluidtechllc.com/ \
+        --out img/after-fluidtech-full
 
 It drives headless Chrome and stitches viewport-sized tiles. Tiles rather
 than one tall capture because Chrome's `captureBeyondViewport` will not
@@ -51,6 +51,11 @@ Useful flags:
   unreadable at pane size.
 - `--hide` removes overlays before the shot: cookie banners, marketing
   popups. Repeatable.
+- `--eval` runs arbitrary JavaScript before the shot, for whatever the other
+  flags do not cover. The Fluid Tech before-shot uses it to swap the page's
+  YouTube embed for a still: the archive cannot replay third-party video, so
+  it otherwise captures as a black slab that reads as a broken screenshot
+  rather than as the page a visitor actually saw.
 - `--width` sets the written width (default 1200). The script prints the
   finished dimensions — copy them into the `<img width height>` attributes so
   the pane reserves the right space while loading.
@@ -58,10 +63,17 @@ Useful flags:
 For an archived page, use the Wayback `if_` suffix so the archive's toolbar
 and donation banner are not baked in:
 
-    https://web.archive.org/web/20240907221802if_/https://www.flextram.com/
+    https://web.archive.org/web/20250429143453if_/https://www.fluidtechllc.com/
 
 Two failure modes worth recognising, since both look like a broken capture
 rather than a broken script. A blank white hero means the video did not
 composite; that is what tile-zero-before-any-scrolling and `--video-time`
 exist to prevent. A page whose logo and nav vanish is usually the same thing:
 white text over a hero that failed to paint.
+
+Archived pages are also just inconsistent. Successive captures of the same
+Wayback snapshot came back 4957, 5281, 5903 and 6044 pixels tall as different
+stylesheets and images made it out of the archive. It is worth taking two or
+three and comparing them: the giveaway for a run that missed its CSS is
+content sitting flush against the viewport edge instead of inside the page's
+container.

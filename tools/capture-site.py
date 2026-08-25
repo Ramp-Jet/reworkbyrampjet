@@ -10,13 +10,13 @@ fill the whole page height.
 Requires Chrome and Pillow. Everything else is stdlib; the script only talks
 to Chrome on localhost, so it needs no TLS support of its own.
 
-    python3 tools/capture-site.py https://www.flextram.com/ \
-        --out img/after-flextram-full --video-time 35.6 --hide .calc-toast
+    python3 tools/capture-site.py https://www.fluidtechllc.com/ \
+        --out img/after-fluidtech-full
 
 For an archived page, use the Wayback `if_` suffix so the archive's own
 toolbar and donation banner are not baked into the screenshot:
 
-    .../web/20240907221802if_/https://www.flextram.com/
+    .../web/20250429143453if_/https://www.fluidtechllc.com/
 """
 
 import argparse
@@ -212,6 +212,10 @@ def capture(args):
             print("  " + str(ws.eval(SEEK_VIDEO % args.video_time,
                                      await_promise=True)))
 
+        if args.eval:
+            print("  " + str(ws.eval(args.eval, await_promise=True,
+                                     timeout=90)))
+
         page_h = ws.eval("document.documentElement.scrollHeight")
         print(f"  page height: {page_h}px")
 
@@ -285,6 +289,10 @@ def main():
                     help="hold the page's <video> at this timestamp, in seconds")
     ap.add_argument("--hide", action="append", default=[], metavar="SELECTOR",
                     help="remove matching elements before capture; repeatable")
+    ap.add_argument("--eval", default=None, metavar="JS",
+                    help="run JavaScript before capture; may return a promise. "
+                         "For anything --hide and --video-time do not cover, "
+                         "such as swapping an embed for a still image.")
     ap.add_argument("--chrome", default=None)
     ap.add_argument("--port", type=int, default=9339)
     capture(ap.parse_args())
