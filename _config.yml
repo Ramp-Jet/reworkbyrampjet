@@ -1,0 +1,9 @@
+# GitHub Pages build config.
+#
+# Everything in this repo is served publicly at reworkbyrampjet.com unless excluded
+# here — BUILD.md was reachable at reworkbyrampjet.com/BUILD.md before this file
+# existed. Internal docs stay in the repo but out of the published site.
+exclude:
+  - BUILD.md
+  - "files (9).zip"
+  - README.md

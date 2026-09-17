@@ -1,0 +1,545 @@
+/* Ramp/Jet shared stylesheet.
+   Extracted from index.html when the site became multi-page.
+   Every page links this; page-specific rules go in a <style> block on that page. */
+
+  :root{
+    --steel:#0E1013; --steel-2:#1B1F23; --steel-3:#262B31;
+    --paper:#F9F6F1; --bone:#ECEAE4; --ink:#14171A; --mute:#6B7076; --mute-lt:#A9AEB3;
+    --orange:#e94b35; --orange-dk:#bd3420; --orange-lt:#f26550;
+    --line:rgba(20,23,26,.14); --line-dk:rgba(249,246,241,.14);
+    --sans:"IBM Plex Sans",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --disp:"Archivo",var(--sans);
+    --stamp:"Space Mono",var(--mono);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .spec{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+  .spec.on{color:var(--orange)}
+  h1,h2,h3{font-family:var(--disp);letter-spacing:-.01em;line-height:1.02}
+  h1{font-size:clamp(44px,6vw,76px);font-weight:900;text-transform:uppercase}
+  h2{font-size:clamp(32px,4.4vw,56px);font-weight:800;text-transform:uppercase}
+  h3{font-size:clamp(24px,2.8vw,36px);font-weight:800}
+  p.sub{font-size:19px;color:#3A3F44;max-width:58ch}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;font-family:var(--mono);font-weight:700;font-size:19px;letter-spacing:.02em;text-transform:uppercase;padding:14px 20px;text-decoration:none;border:0;cursor:pointer}
+  .btn:hover{background:var(--orange-lt)}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn svg{width:16px;height:16px}
+  :focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+  /* NAV */
+  header{background:var(--steel);color:var(--paper);border-bottom:1px solid var(--line-dk)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
+  .brand{font-family:var(--disp);font-weight:900;font-size:26px;letter-spacing:.04em;text-decoration:none;text-transform:uppercase}
+  .brand b{color:var(--orange);font-weight:900}
+  .nav ul{display:flex;gap:28px;list-style:none;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .nav ul a{text-decoration:none;color:var(--mute-lt)}
+  .nav ul a:hover{color:var(--paper)}
+  .nav .btn{padding:10px 15px}
+  @media (max-width:820px){.nav ul{display:none}}
+
+  .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--steel);color:var(--paper);font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:14px 20px;text-decoration:none;box-shadow:inset 0 0 0 2px var(--orange)}
+  .skip:focus{left:0}
+
+  /* MOBILE MENU */
+  header{position:relative}
+  .menu-btn{display:none;background:transparent;border:2px solid var(--paper);color:var(--paper);font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;cursor:pointer}
+  .menu-btn:hover{background:var(--paper);color:var(--steel)}
+  @media (max-width:820px){
+    /* brand + Menu + CTA must share 375px without the CTA wrapping */
+    .nav{gap:6px}
+    .brand{font-size:17px}
+    /* the CTA keeps 19px so it stays above the WCAG large-text floor;
+       the brand and Menu give up the width to make room for it */
+    .nav .btn{padding:10px 9px;letter-spacing:0;white-space:nowrap}
+    .menu-btn{display:inline-flex;order:2;padding:9px 8px;font-size:13px;white-space:nowrap}
+    .nav .btn{order:3}
+    .nav ul{display:none}
+    .nav.open ul{display:flex;flex-direction:column;gap:0;position:absolute;top:74px;left:0;right:0;background:var(--steel);border-top:1px solid var(--line-dk);border-bottom:2px solid var(--orange);padding:0;z-index:60}
+    .nav.open ul li{border-top:1px solid var(--line-dk)}
+    .nav.open ul li:first-child{border-top:0}
+    .nav.open ul a{display:block;padding:18px 28px;color:var(--paper)}
+    .nav.open ul a:hover{background:var(--steel-2)}
+  }
+
+  /* HERO */
+  .hero{background:var(--steel);color:var(--paper);padding:88px 0 96px;position:relative;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .hero h1 span{color:var(--orange)}
+  .hero p.sub{color:#C9CDD1;margin:26px 0 34px}
+  .hero .row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .hero .row .spec{color:var(--mute-lt)}
+  @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero{padding:56px 0 64px}}
+
+  /* WHAT YOU NEED — the signature card */
+  .order{background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:10px 10px 0 var(--orange);font-family:var(--mono)}
+  .order .head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:2px solid var(--ink);background:var(--bone)}
+  .order .head .t{font-family:var(--stamp);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+  .order .head .n{font-size:12px;color:var(--mute)}
+  .order .hint{padding:14px 18px 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+  .line{display:grid;grid-template-columns:26px 1fr auto;gap:14px;align-items:start;padding:14px 18px;border-top:1px dashed var(--line);cursor:pointer;user-select:none}
+  .line:hover{background:#F2EEE7}
+  .line input{appearance:none;width:22px;height:22px;border:2px solid var(--ink);background:#fff;margin-top:2px;cursor:pointer;position:relative}
+  .line input:checked{background:var(--orange);border-color:var(--orange)}
+  .line input:checked::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg)}
+  .line .nm{display:block;font-family:var(--disp);font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:.02em}
+  .line .ds{display:block;font-family:var(--sans);font-size:14px;color:#3A3F44;margin-top:2px}
+  .line .pr{font-size:13px;text-align:right;white-space:nowrap;color:var(--ink)}
+  .line .pr small{display:block;color:var(--mute);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+  .order .tot{border-top:2px solid var(--ink);padding:16px 18px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;min-height:78px}
+  .order .tot .lbl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+  .order .tot .val{font-family:var(--sans);font-size:15px;margin-top:4px;line-height:1.35}
+  .order .tot .val b{font-family:var(--disp);text-transform:uppercase;font-weight:800;font-size:17px;color:var(--orange-dk)}
+  .order .tot .btn{padding:10px 13px}
+  .stamp{position:absolute;right:14px;top:-14px;font-family:var(--stamp);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);background:var(--paper);padding:2px 8px;border:1px solid var(--orange);transform:rotate(2deg)}
+  .order{position:relative}
+
+
+  /* TERRITORY MAP */
+  .map{background:var(--bone);padding:72px 0;border-bottom:1px solid var(--line)}
+  .map .intro{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+  .map .intro p{font-size:17px;color:#3A3F44;max-width:44ch}
+  .terr{display:grid;grid-template-columns:repeat(6,1fr) 1.15fr;grid-template-rows:auto auto;gap:0;border:2px solid var(--ink);background:#fff}
+  .claim{grid-row:1;padding:14px 16px 12px;border-bottom:2px solid var(--ink);border-left:2px solid var(--ink);font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:20px;letter-spacing:.02em;position:relative}
+  .claim small{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.12em;color:var(--mute);margin-top:2px;text-transform:uppercase}
+  .claim::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--orange)}
+  .claim.c1{grid-column:1/3;border-left:0}
+  .claim.c2{grid-column:3/5}
+  .claim.c3{grid-column:5/7}
+  .st{grid-row:2;padding:22px 16px 24px;border-left:1px dashed var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);position:relative}
+  .st:first-of-type{border-left:0}
+  .st b{display:block;font-family:var(--sans);font-weight:600;font-size:16px;letter-spacing:0;text-transform:none;color:var(--ink);margin-top:6px;line-height:1.25}
+  .st::after{content:"→";position:absolute;right:-9px;top:26px;background:#fff;color:var(--orange);font-weight:600;padding:0 2px;z-index:1}
+  .st.last::after{display:none}
+  .erp{grid-column:7;grid-row:1/3;background:var(--steel);color:var(--paper);padding:22px 20px;border-left:4px solid var(--orange);display:flex;flex-direction:column;justify-content:center}
+  .erp .k{font-family:var(--stamp);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+  .erp b{font-family:var(--disp);font-weight:900;font-size:24px;text-transform:uppercase;display:block;margin:8px 0 6px;line-height:1}
+  .erp p{font-size:14px;color:#C9CDD1;line-height:1.4}
+  .map .legend{margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.04em}
+  @media (max-width:980px){
+    .terr{grid-template-columns:1fr;grid-template-rows:none}
+    .terr .claim,.terr .st,.terr .erp{grid-column:1;grid-row:auto;border-left:0}
+    .terr .claim{border-top:2px solid var(--ink);border-bottom:0}
+    .terr .st{border-top:1px dashed var(--line)}
+    .terr .st::after{display:none}
+    .terr .erp{border-top:2px solid var(--ink)}
+    .terr .c1{order:1}.terr .s1{order:2}.terr .s2{order:3}.terr .c2{order:4}.terr .s3{order:5}.terr .s4{order:6}.terr .c3{order:7}.terr .s5{order:8}.terr .s6{order:9}.terr .erp{order:10}
+  }
+
+  /* WHO */
+  .who{padding:84px 0;border-bottom:1px solid var(--line)}
+  .who .grid{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}
+  .who h2{margin-top:10px}
+  .who .list{font-size:18px;color:#3A3F44}
+  .who .list li{list-style:none;padding:16px 0 16px 34px;border-top:1px solid var(--line);position:relative}
+  .who .list li:last-child{border-bottom:1px solid var(--line)}
+  .who .list li::before{content:"";position:absolute;left:0;top:24px;width:16px;height:2px;background:var(--orange)}
+  .who .list li b{color:var(--ink);font-weight:600}
+  @media (max-width:900px){.who .grid{grid-template-columns:1fr;gap:28px}}
+
+  /* PRODUCTS */
+  .products{padding:96px 0 40px}
+  .products .intro{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+  .prod{display:grid;grid-template-columns:200px 1fr 300px;gap:40px;padding:48px 0;border-top:2px solid var(--ink)}
+  .prod:last-of-type{border-bottom:2px solid var(--ink)}
+  .prod .tag{font-family:var(--disp);font-weight:900;font-size:34px;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+  .prod .tag small{display:block;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;color:var(--mute);margin-top:8px}
+  .prod .tag .sw{display:block;width:44px;height:8px;background:var(--orange);margin-bottom:14px}
+  .prod .say{font-family:var(--disp);font-weight:800;font-size:clamp(26px,3.2vw,40px);line-height:1.08;margin-bottom:18px}
+  .prod .say::before{content:"“";color:var(--orange)}
+  .prod .say::after{content:"”";color:var(--orange)}
+  .prod p{font-size:17px;color:#3A3F44;max-width:60ch}
+  .prod p+p{margin-top:12px}
+  .card{background:var(--bone);border:1px solid var(--line);font-family:var(--mono);font-size:13px}
+  .card .r{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-top:1px dashed var(--line)}
+  .card .r:first-child{border-top:0;background:var(--ink);color:var(--paper);letter-spacing:.12em;text-transform:uppercase;font-size:11px}
+  .card .r .k{color:var(--mute);text-transform:uppercase;letter-spacing:.08em;font-size:11px}
+  .card .r .v{text-align:right}
+  .card .r.no .v{color:var(--orange-dk)}
+  .card .r .v b{font-family:var(--disp);font-size:18px;font-weight:800}
+  .card .cta{padding:14px 16px;border-top:1px solid var(--line)}
+  .card .cta a{font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--orange-dk)}
+  @media (max-width:980px){.prod{grid-template-columns:1fr;gap:22px;padding:36px 0}}
+
+  /* DONT */
+  .dont{background:var(--steel);color:var(--paper);padding:72px 0}
+  .dont .grid{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
+  .dont ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+  .dont li{font-family:var(--disp);font-weight:700;font-size:22px;padding:16px 0 16px 38px;border-top:1px solid var(--line-dk);position:relative;text-transform:uppercase;letter-spacing:.01em}
+  .dont li::before{content:"✕";position:absolute;left:0;top:15px;color:var(--orange);font-family:var(--mono);font-weight:600}
+  .dont p{color:#C9CDD1;font-size:17px;margin-top:18px;max-width:46ch}
+  @media (max-width:900px){.dont .grid{grid-template-columns:1fr}.dont ul{grid-template-columns:1fr}}
+
+  /* FULL BUILD */
+  .full{padding:96px 0}
+  .full .top{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:40px}
+  .route{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink);background:#fff}
+  /* product pages run four operations, not the Full Build's three. Declared before
+     the 900px rule below so that rule still collapses it to one column on mobile. */
+  .route--4{grid-template-columns:repeat(4,1fr)}
+  .route--4 .op{padding:24px 20px 26px}
+  .route--4 .op h3{font-size:clamp(21px,2.3vw,28px)}
+  .op{padding:26px 24px 28px;border-left:2px solid var(--ink);position:relative}
+  .op:first-child{border-left:0}
+  .op .n{font-family:var(--stamp);font-size:12px;letter-spacing:.16em;color:var(--orange);text-transform:uppercase}
+  .op h3{margin:10px 0 6px;text-transform:uppercase}
+  .op .w{font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+  .op p{font-size:15px;color:#3A3F44;margin-top:12px}
+  .op::after{content:"→";position:absolute;right:-13px;top:28px;background:#fff;color:var(--ink);font-family:var(--mono);font-weight:600;z-index:1;padding:0 3px}
+  .op:last-child::after{display:none}
+  .full .foot{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border:2px solid var(--ink);border-top:0;background:var(--bone);padding:20px 24px;font-family:var(--mono);font-size:14px}
+  .full .foot b{font-family:var(--disp);text-transform:uppercase;font-weight:800;font-size:18px}
+  @media (max-width:900px){.full .top{grid-template-columns:1fr}.route{grid-template-columns:1fr}.op{border-left:0;border-top:2px solid var(--ink)}.op:first-child{border-top:0}.op::after{display:none}.full .foot{grid-template-columns:1fr}}
+
+  /* HANDOFF — the absence check */
+  .risk{background:var(--steel-2);color:var(--paper);padding:84px 0;border-bottom:1px solid var(--line-dk)}
+  .risk .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+  .risk h2{margin-top:10px}
+  .risk .lede{color:#C9CDD1;font-size:17px;margin-top:18px;max-width:46ch}
+  .risk .kicker{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:clamp(18px,1.9vw,22px);line-height:1.16;margin-top:30px;max-width:30ch;border-left:4px solid var(--orange);padding-left:16px}
+  .risk .kicker span{color:var(--orange)}
+  .sheet{position:relative;background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:10px 10px 0 var(--orange);font-family:var(--mono)}
+  .sheet .head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:2px solid var(--ink);background:var(--bone)}
+  .sheet .head .t{font-family:var(--stamp);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+  .sheet .head .n{font-size:12px;color:var(--mute)}
+  .sheet .head .honest{font-family:var(--stamp);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-dk)}
+  .sheet .hint{padding:14px 18px 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+  .chk{display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:start;padding:13px 18px;border-top:1px dashed var(--line);cursor:pointer;user-select:none;font-family:var(--sans);font-size:15px;color:#3A3F44}
+  .chk:hover{background:#F2EEE7}
+  .chk input{appearance:none;width:22px;height:22px;border:2px solid var(--ink);background:#fff;margin-top:1px;cursor:pointer;position:relative;flex:none}
+  .chk input:checked{background:var(--orange);border-color:var(--orange)}
+  .chk input:checked::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg)}
+  .sheet .res{border-top:2px solid var(--ink);padding:16px 18px;min-height:78px;display:flex;flex-direction:column;justify-content:center}
+  .sheet .res .lbl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+  .sheet .res .val{font-family:var(--sans);font-size:15px;margin-top:6px;line-height:1.35}
+  .sheet .res .val b{font-family:var(--disp);text-transform:uppercase;font-weight:800;font-size:17px;color:var(--orange-dk)}
+  @media (max-width:900px){.risk .grid{grid-template-columns:1fr;gap:38px}.risk{padding:64px 0}}
+
+  /* SYSTEM BAND — the flywheel lives here */
+  .system{background:var(--steel);color:var(--paper);padding:88px 0;border-top:1px solid var(--line-dk);border-bottom:1px solid var(--line-dk);overflow:hidden}
+  .system .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  .system h2{margin-top:10px}
+  .system p{color:#C9CDD1;font-size:17px;max-width:48ch;margin-top:18px}
+  .system .claimline{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:clamp(20px,2.2vw,26px);line-height:1.12;color:var(--paper);margin-top:26px;max-width:26ch}
+  .system .claimline span{color:var(--orange)}
+  @media (max-width:900px){.system .grid{grid-template-columns:1fr;gap:36px}.system{padding:64px 0}}
+
+/* RAMP VISUAL — the hero flywheel.
+   WARNING: these class names are unscoped and global. .packet, .satellite,
+   .feeler, .jet-slot and friends carry opacity:0 plus an offset-path
+   animation, so any element on any page that reuses one of these names
+   goes invisible and slides off-screen. Prefix new component classes. */
+/* RAMP VISUAL */
+.ramp-visual {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 1.2s ease 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.ramp-visual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* Ramp dot — feelers extend to satellites, then pull them back into the core */
+.feeler {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-linecap: butt;
+  fill: none;
+  stroke-dasharray: 0 100;
+  animation: feelerExtend 3.6s ease-in-out infinite;
+}
+
+.feeler-1 { animation-delay: 0s; }
+.feeler-2 { animation-delay: 0.9s; }
+.feeler-3 { animation-delay: 1.8s; }
+.feeler-4 { animation-delay: 2.7s; }
+
+@keyframes feelerExtend {
+  0%, 10% { stroke-dasharray: 0 100; }
+  30%, 35% { stroke-dasharray: 100 0; }
+  65%, 100% { stroke-dasharray: 0 100; }
+}
+
+.satellite {
+  opacity: 0;
+  animation-duration: 3.6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.satellite-1 { animation-name: satellite1; animation-delay: 0s; }
+.satellite-2 { animation-name: satellite2; animation-delay: 0.9s; }
+.satellite-3 { animation-name: satellite3; animation-delay: 1.8s; }
+.satellite-4 { animation-name: satellite4; animation-delay: 2.7s; }
+
+/* Each satellite: fade in at base position → hold while line extends →
+   travel to Ramp core in sync with line retraction → fade out (absorbed) */
+@keyframes satellite1 {
+  0%   { opacity: 0; transform: translate(0, 0); }
+  10%  { opacity: 1; transform: translate(0, 0); }
+  35%  { opacity: 1; transform: translate(0, 0); }
+  65%  { opacity: 1; transform: translate(38px, 72px); }
+  70%  { opacity: 0; transform: translate(38px, 72px); }
+  100% { opacity: 0; transform: translate(0, 0); }
+}
+
+@keyframes satellite2 {
+  0%   { opacity: 0; transform: translate(0, 0); }
+  10%  { opacity: 1; transform: translate(0, 0); }
+  35%  { opacity: 1; transform: translate(0, 0); }
+  65%  { opacity: 1; transform: translate(62px, 40px); }
+  70%  { opacity: 0; transform: translate(62px, 40px); }
+  100% { opacity: 0; transform: translate(0, 0); }
+}
+
+@keyframes satellite3 {
+  0%   { opacity: 0; transform: translate(0, 0); }
+  10%  { opacity: 1; transform: translate(0, 0); }
+  35%  { opacity: 1; transform: translate(0, 0); }
+  65%  { opacity: 1; transform: translate(78px, 0); }
+  70%  { opacity: 0; transform: translate(78px, 0); }
+  100% { opacity: 0; transform: translate(0, 0); }
+}
+
+@keyframes satellite4 {
+  0%   { opacity: 0; transform: translate(0, 0); }
+  10%  { opacity: 1; transform: translate(0, 0); }
+  35%  { opacity: 1; transform: translate(0, 0); }
+  65%  { opacity: 1; transform: translate(58px, -45px); }
+  70%  { opacity: 0; transform: translate(58px, -45px); }
+  100% { opacity: 0; transform: translate(0, 0); }
+}
+
+/* Core gives a small pulse on each absorption (every 0.9s) */
+.ramp-core {
+  transform-origin: 100px 240px;
+  animation: rampCorePulse 0.9s ease-in-out infinite;
+}
+
+@keyframes rampCorePulse {
+  0%, 25%, 70%, 100% { transform: scale(1); }
+  40% { transform: scale(1.08); }
+}
+
+/* Data packets ride the trajectory from Ramp to Calibrate after each absorption */
+.packet {
+  offset-path: path('M 100 240 A 160 160 0 0 1 260 80');
+  offset-distance: 0%;
+  offset-rotate: 0deg;
+  opacity: 0;
+  animation: packetTravel 3.6s ease-in-out infinite;
+}
+
+.packet-1 { animation-delay: 0s; }
+.packet-2 { animation-delay: 0.9s; }
+.packet-3 { animation-delay: 1.8s; }
+.packet-4 { animation-delay: 2.7s; }
+
+@keyframes packetTravel {
+  0%, 66% { offset-distance: 0%; opacity: 0; }
+  67% { offset-distance: 0%; opacity: 1; }
+  99% { offset-distance: 100%; opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+/* Calibrate dot — flashes + scales on each packet impact (every 0.9s) */
+.calibrate-core {
+  transform-origin: 260px 80px;
+  animation: calibrateFlash 0.9s ease-out infinite;
+  animation-delay: 3.564s;
+}
+
+@keyframes calibrateFlash {
+  0%   { fill: #e94b35; transform: scale(1.5); }
+  30%  { fill: #F9F6F1; transform: scale(1); }
+  100% { fill: #F9F6F1; transform: scale(1); }
+}
+
+/* Ripple ring expands outward from Calibrate on each impact */
+.calibrate-ripple {
+  transform-origin: 260px 80px;
+  opacity: 0;
+  animation: calibrateRipple 0.9s ease-out infinite;
+  animation-delay: 3.564s;
+}
+
+@keyframes calibrateRipple {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(3);   opacity: 0; }
+}
+
+/* Tune dial — needle stays static, then snaps to a new (non-uniform) angle each
+   time a packet passes through. 8 discrete jumps per 7.2s cycle, paced 0.9s apart.
+   Animation-delay 2.81s holds the needle at 0° until the first jump, which coincides
+   with packet 1's first pass-through at real time 3.71s. */
+.tune-needle {
+  transform-origin: 420px 240px;
+  animation: tuneTick 7.2s steps(1, jump-end) infinite;
+  animation-delay: 2.81s;
+}
+
+@keyframes tuneTick {
+  0%    { transform: rotate(0deg);   }
+  12.5% { transform: rotate(73deg);  }
+  25%   { transform: rotate(215deg); }
+  37.5% { transform: rotate(142deg); }
+  50%   { transform: rotate(308deg); }
+  62.5% { transform: rotate(31deg);  }
+  75%   { transform: rotate(187deg); }
+  87.5% { transform: rotate(264deg); }
+  100%  { transform: rotate(0deg);   }
+}
+
+/* Jet ring rotates clockwise one full turn per slot-fill cycle (7.2s).
+   Synced with packet timing: in 0.9s the ring rotates 45° (one slot-spacing),
+   so a fresh slot reaches the landing point P each time a packet arrives. */
+.jet-ring {
+  transform-origin: 260px 400px;
+  animation: jetRotate 7.2s linear infinite;
+  animation-delay: 4.374s;
+}
+
+@keyframes jetRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Calibrate → Jet accretion packets — all aim at the same fixed landing point P
+   (angle 135° on the ring). The rotating ring delivers a different slot to P
+   for each arrival, so packet and slot meet exactly. Slowed flight (~1.5s) so
+   the dots are clearly visible in transit. */
+.packet-acc {
+  offset-path: path('M 260 80 A 160 160 0 0 1 292.8 396.6');
+  offset-distance: 0%;
+  offset-rotate: 0deg;
+  opacity: 0;
+  animation: packetAcc 7.2s linear infinite;
+}
+
+.packet-acc-1 { animation-delay: 2.874s; }
+.packet-acc-2 { animation-delay: 3.774s; }
+.packet-acc-3 { animation-delay: 4.674s; }
+.packet-acc-4 { animation-delay: 5.574s; }
+.packet-acc-5 { animation-delay: 6.474s; }
+.packet-acc-6 { animation-delay: 7.374s; }
+.packet-acc-7 { animation-delay: 8.274s; }
+.packet-acc-8 { animation-delay: 9.174s; }
+
+@keyframes packetAcc {
+  0%      { offset-distance: 0%;   opacity: 0; }
+  1%      { offset-distance: 0%;   opacity: 1; }
+  20.83%  { offset-distance: 100%; opacity: 1; }
+  21%     { offset-distance: 100%; opacity: 0; }
+  100%    { offset-distance: 100%; opacity: 0; }
+}
+
+/* 8 slots light up one-by-one as packets arrive (every 0.9s); all reset together when full */
+.jet-slot {
+  opacity: 0;
+  animation-duration: 7.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 4.374s;
+}
+
+.jet-slot-1 { animation-name: jetSlot1; }
+.jet-slot-2 { animation-name: jetSlot2; }
+.jet-slot-3 { animation-name: jetSlot3; }
+.jet-slot-4 { animation-name: jetSlot4; }
+.jet-slot-5 { animation-name: jetSlot5; }
+.jet-slot-6 { animation-name: jetSlot6; }
+.jet-slot-7 { animation-name: jetSlot7; }
+.jet-slot-8 { animation-name: jetSlot8; }
+
+@keyframes jetSlot1 { 0%, 95% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes jetSlot2 { 0%, 12% { opacity: 0; } 13%, 95% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes jetSlot3 { 0%, 25% { opacity: 0; } 26%, 95% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes jetSlot4 { 0%, 37% { opacity: 0; } 38%, 95% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes jetSlot5 { 0%, 50% { opacity: 0; } 51%, 95% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes jetSlot6 { 0%, 62% { opacity: 0; } 63%, 95% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes jetSlot7 { 0%, 75% { opacity: 0; } 76%, 95% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes jetSlot8 { 0%, 87% { opacity: 0; } 88%, 95% { opacity: 1; } 100% { opacity: 0; } }
+
+/* Return loop: once per 7.2s cycle, a consolidated-signal packet flows Jet → Ramp,
+   arriving as the Jet ring resets — visually closes the flywheel. */
+.packet-return {
+  offset-path: path('M 260 400 A 160 160 0 0 1 100 240');
+  offset-distance: 0%;
+  offset-rotate: 0deg;
+  opacity: 0;
+  animation: packetReturn 7.2s linear infinite;
+  animation-delay: 10.674s;
+}
+
+@keyframes packetReturn {
+  0%    { offset-distance: 0%;   opacity: 0; }
+  1%    { offset-distance: 0%;   opacity: 1; }
+  12.5% { offset-distance: 100%; opacity: 1; }
+  13.5% { offset-distance: 100%; opacity: 0; }
+  100%  { offset-distance: 100%; opacity: 0; }
+}
+
+@media (max-width: 900px) {
+  .ramp-visual { max-width: 340px; }
+}
+
+  /* Reduced motion: the blanket animation:none above would leave the flywheel
+     at opacity 0, so pin it to a readable static state instead. */
+  @media (prefers-reduced-motion:reduce){
+    .ramp-visual{opacity:1!important}
+    .feeler{stroke-dasharray:100 0!important}
+    .satellite{opacity:1!important;transform:none!important}
+    .calibrate-core{fill:#F9F6F1!important;transform:none!important}
+    .tune-needle{transform:none!important}
+    .jet-slot{opacity:1!important}
+    .jet-ring{transform:none!important}
+    .packet,.packet-acc,.packet-return,.calibrate-ripple{opacity:0!important}
+  }
+
+  /* what the selection card carried down here */
+  .carried{display:inline-flex;align-items:baseline;flex-wrap:wrap;gap:10px;margin-top:22px;padding:12px 16px;background:var(--bone);border-left:4px solid var(--orange);font-family:var(--mono);font-size:14px}
+  .carried .k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+  .carried b{font-family:var(--disp);font-weight:800;text-transform:uppercase;font-size:16px;letter-spacing:.02em}
+  .carried a{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-dk)}
+
+  /* BOOKING FORM */
+  .booking{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;max-width:560px}
+  .booking input[type=email]{flex:1 1 260px;font-family:var(--mono);font-size:15px;padding:15px 16px;border:2px solid var(--ink);background:#fff;color:var(--ink)}
+  .booking input[type=email]::placeholder{color:var(--mute)}
+  .booking .btn{border:2px solid var(--orange)}
+  .msg{font-family:var(--mono);font-size:14px;margin-top:16px}
+  .msg.ok{color:var(--orange-dk)}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+  /* FINAL */
+  .final{padding:96px 0}
+  .final .row{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:28px}
+  footer{background:var(--steel);color:var(--mute-lt);padding:28px 0;font-family:var(--mono);font-size:12px}
+  footer .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer .foot .brand{color:var(--paper);font-size:20px}
+  footer .foot a{color:var(--mute-lt)}
+  footer .foot nav a{margin-left:18px;text-decoration:none;text-transform:uppercase;letter-spacing:.08em}
+  footer .foot nav a:hover{color:var(--paper)}
+  /* advisors gets its own line: findable for the people looking for it,
+     skimmed past by owners. Stays out of the header nav (design doc §6). */
+  footer .foot-advisors{border-top:1px solid var(--line-dk);margin-top:20px;padding-top:18px}
+  footer .foot-advisors a{display:inline-block;font-family:var(--mono);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--paper);text-decoration:none;border-bottom:2px solid var(--orange);padding-bottom:3px}
+  footer .foot-advisors a:hover{color:var(--orange)}

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Ramp/Jet advisor one-pager.">
+<meta name="robots" content="noindex,nofollow">
+<title>Ramp/Jet — Advisor one-pager</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  body{background:var(--bone)}
+  .bar{background:var(--steel);color:var(--paper);padding:14px 0}
+  .bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .bar a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--mute-lt)}
+  .bar a:hover{color:var(--paper)}
+
+  .sheet-page{max-width:900px;margin:28px auto 60px;background:#fff;border:2px solid var(--ink);padding:44px 48px 40px}
+  .sheet-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;border-bottom:2px solid var(--ink);padding-bottom:18px;flex-wrap:wrap}
+  .sheet-head .brand{font-family:var(--disp);font-weight:900;font-size:26px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+  .sheet-head .brand b{color:var(--orange)}
+  .sheet-head .doc{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);text-align:right}
+  .sheet-page h1{font-size:clamp(30px,4vw,44px);margin-top:26px;text-transform:uppercase}
+  .sheet-page h1 span{color:var(--orange-dk)}
+  .lede{font-size:17px;color:#3A3F44;margin-top:16px;max-width:74ch}
+  .sheet-page h2{font-size:15px;font-family:var(--mono);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-dk);margin-top:30px}
+  .sheet-page h3{font-size:19px;text-transform:none;letter-spacing:0;margin-top:16px}
+  .sheet-page p{font-size:15px;color:#3A3F44;margin-top:8px;max-width:74ch}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:8px}
+  .rowlist{list-style:none;margin-top:10px}
+  .rowlist li{font-size:14.5px;color:#3A3F44;padding:9px 0 9px 26px;border-top:1px solid var(--line);position:relative}
+  .rowlist li:last-child{border-bottom:1px solid var(--line)}
+  .rowlist li::before{content:"";position:absolute;left:0;top:17px;width:14px;height:2px;background:var(--orange)}
+  .rowlist li b{color:var(--ink);font-weight:600}
+  .spec-rows{border:1px solid var(--line);font-family:var(--mono);font-size:13px;margin-top:10px;background:var(--bone)}
+  .spec-rows .r{display:flex;justify-content:space-between;gap:14px;padding:9px 14px;border-top:1px dashed var(--line)}
+  .spec-rows .r:first-child{border-top:0;background:var(--ink);color:var(--paper);text-transform:uppercase;letter-spacing:.12em;font-size:10.5px}
+  .spec-rows .k{color:var(--mute);text-transform:uppercase;letter-spacing:.07em;font-size:10.5px}
+  .say{border-left:6px solid var(--orange);background:var(--bone);padding:16px 20px;margin-top:12px}
+  .say p{font-family:var(--disp);font-weight:700;font-size:17px;color:var(--ink);max-width:none}
+  .sheet-foot{border-top:2px solid var(--ink);margin-top:30px;padding-top:14px;font-family:var(--mono);font-size:12px;color:var(--mute);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  @media (max-width:820px){.grid2{grid-template-columns:1fr;gap:20px}.sheet-page{padding:28px 22px;margin:16px}}
+
+  /* Print: one clean sheet, no chrome, ink on white */
+  @media print{
+    @page{margin:12mm}
+    body{background:#fff}
+    .bar,.no-print{display:none!important}
+    .sheet-page{max-width:none;margin:0;border:0;padding:0;box-shadow:none}
+    .sheet-page h1{font-size:21px;margin-top:14px}
+    .sheet-page h2{margin-top:8px;font-size:10px}
+    .sheet-page h3{font-size:12px;margin-top:6px}
+    .sheet-page p,.lede{font-size:9.5px;margin-top:4px}
+    .rowlist li{font-size:9.5px;padding:3px 0 3px 18px}
+    .rowlist li::before{top:9px;width:11px}
+    .spec-rows{font-size:9.5px;margin-top:6px}
+    .spec-rows .r{padding:3px 10px}
+    .spec-rows .k{font-size:9px}
+    .say{padding:10px 14px;margin-top:8px}
+    .say p{font-size:11px}
+    /* print width (~710px) falls under the 820px mobile rule, which would
+       stack the columns and push this onto a second page */
+    .grid2{grid-template-columns:1fr 1fr;gap:18px}
+    .sheet-foot{margin-top:8px;padding-top:8px;font-size:9px}
+    a{text-decoration:none;color:var(--ink)}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar no-print">
+  <div class="wrap">
+    <a href="/advisors/">&larr; Back to advisors</a>
+    <span><a href="/advisors/rampjet-advisor-one-pager.pdf" download>Download PDF</a>
+      <span style="color:var(--mute);margin:0 8px">&middot;</span>
+      <a href="#" id="print-btn">Print</a></span>
+  </div>
+</div>
+
+<article class="sheet-page">
+
+  <div class="sheet-head">
+    <a class="brand" href="/">Ramp<b>/</b>Jet</a>
+    <div class="doc">Advisor one-pager · v2<br>reworkbyrampjet.com/advisors</div>
+  </div>
+
+  <h1>The readiness items that <span>close in days.</span></h1>
+  <p class="lede">For brokers, exit planners, CPAs and M&amp;A counsel with a client whose website is a decade old and whose quoting lives in one person's head. We close those at a flat price and hand the acquirer documentation at close.</p>
+
+  <h2>Why it's on your list</h2>
+  <p>Everything else on the readiness list takes months: financials, contracts, concentration, management depth. The website can be finished this week, and it's the first thing a search fund or PE associate opens. Quoting and job tracking take a project, not a year. A 2011 site — and a business that stops when the owner is out — is a signal about the rest of the building.</p>
+
+  <div class="grid2">
+    <div>
+      <h2>What we tell your client</h2>
+      <h3>We don't say it raises the multiple.</h3>
+      <p>It doesn't, and you'd hear about it if we did.</p>
+      <h3>We say it's a cheap chip in two columns.</h3>
+      <p>"Runs without the owner" and "documented systems" — plus it removes a first-impression risk with buyers who diligence from a laptop.</p>
+      <h3>We say the footprint transfers on day one.</h3>
+      <p>Nobody calls the seller about a domain renewal in month four.</p>
+    </div>
+    <div>
+      <h2>How it runs</h2>
+      <h3>Day 1</h3>
+      <p>One 30-minute call with the owner. We write the copy and source the photos; the client reviews instead of produces.</p>
+      <h3>Day 2</h3>
+      <p>Client marks up a link, we fix it, we switch the domain. Two revision rounds included.</p>
+      <h3>Every quarter after</h3>
+      <p>A one-page inspection: what's working, what's broken, what competitors changed. Included, ongoing, no clock.</p>
+      <h3>At close</h3>
+      <p>Transfer Packet plus one handoff call. If the deal takes three years or never closes, nothing changes for your client.</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h2>Work order · Rework, standard</h2>
+      <div class="spec-rows">
+        <div class="r"><span>Item</span><span>Spec</span></div>
+        <div class="r"><span class="k">Turnaround</span><span>2 days</span></div>
+        <div class="r"><span class="k">Revisions</span><span>2 rounds</span></div>
+        <div class="r"><span class="k">Price</span><span>$2,000 flat</span></div>
+        <div class="r"><span class="k">Hosting</span><span>Included</span></div>
+        <div class="r"><span class="k">Quarterly inspection</span><span>Included, ongoing</span></div>
+        <div class="r"><span class="k">Transfer Packet at close</span><span>Included</span></div>
+        <div class="r"><span class="k">Rework + Maintain</span><span>+$200/mo, cancel any month</span></div>
+      </div>
+      <h2>Advisor terms · pick one</h2>
+      <div class="spec-rows">
+        <div class="r"><span>Term</span><span>Detail</span></div>
+        <div class="r"><span class="k">Referral fee</span><span>10% of the build</span></div>
+        <div class="r"><span class="k">Or client credit</span><span>$200 off, in your name</span></div>
+        <div class="r"><span class="k">Post-close</span><span>Acquirer may continue; same terms</span></div>
+        <div class="r"><span class="k">Fit check</span><span>If we're not right, we say so</span></div>
+      </div>
+    </div>
+    <div>
+      <h2>Transfer Packet · contents</h2>
+      <ul class="rowlist">
+        <li><b>Domain registrar access</b>, in the company's name, renewals documented</li>
+        <li><b>Hosting and DNS</b>, credentials recorded and transferable</li>
+        <li><b>Google Business Profile</b> ownership, verified and correct</li>
+        <li><b>Analytics and Search Console</b>, history intact</li>
+        <li><b>Site source files</b> and current content inventory</li>
+        <li><b>Every quarterly inspection</b> since the rework</li>
+        <li><b>Documented processes and system access</b> for anything Run built</li>
+        <li><b>One handoff call</b> with the acquirer's team</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h2>Confidentiality</h2>
+      <p>Nothing about this signals a sale. To customers, employees and the internet it's a company updating its site and tidying its back office. We never reference the transaction, we don't tag the client anywhere, and we work with you, not around you.</p>
+    </div>
+    <div>
+      <h2>How to hand it off</h2>
+      <div class="say">
+        <p>"Your website's on the list too. There's a group that rebuilds sites for companies like yours in two days for a flat $2,000, keeps an eye on it every quarter, and hands the buyer everything documented at close. One call, and it's off your desk. Want me to make the intro?"</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet-foot">
+    <span>Book a 30-minute call at reworkbyrampjet.com/advisors</span>
+    <span>Ramp/Jet · Systems for industrial companies</span>
+  </div>
+
+</article>
+
+<script>
+  document.getElementById('print-btn').addEventListener('click', function(e){ e.preventDefault(); window.print(); });
+</script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

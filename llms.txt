@@ -1,0 +1,42 @@
+# Ramp/Jet
+
+> Ramp/Jet builds the systems owner-operated industrial companies run on when the owner isn't in
+> the room: the website, the demand engine behind it, and the quoting, tracking and follow-up work
+> that still runs on spreadsheets and memory.
+
+Who it's for: owner-operated industrial companies, roughly $5-50M — machine shops, fabricators,
+distributors, contract manufacturers, specialty suppliers. The defining condition is that sales,
+quoting and customer knowledge still route through one or two people.
+
+Scope: everything from the first search to the ERP. Ramp/Jet connects to what a company already
+uses (QuickBooks, spreadsheets, the shared drive) and stops where the ERP begins. It does not
+replace an ERP.
+
+## Products
+
+- **Rework** — the website. A professional site rebuilt in two days from the first call. Brand
+  system, hosting and a quarterly inspection included. $2,000 one-time, plus an optional Maintain
+  plan at $200/month.
+- **Reach** — the demand engine. Every inquiry (web form, email, phone) captured, routed and
+  followed up on a fixed schedule, with a weekly report. Billed monthly.
+- **Run** — operations. One process at a time (quoting, job tracking, customer records) moved out
+  of one person's head into a system the whole team can run. From $3,500 per project, fixed price,
+  scoped first.
+- **The Full Build** — all three, built in order on one work order.
+
+## Not offered
+
+ERP replacement, six-month rollouts, rip-and-replace migrations, "digital transformation"
+programmes, or AI sold as the headline.
+
+## Pages
+
+- https://reworkbyrampjet.com/reach/ — Reach in detail: how capture, routing and follow-up work, the weekly report, price and FAQ.
+- https://reworkbyrampjet.com/run/ — Run in detail: scoping, the four operations, the quarterly ops review, price and FAQ.
+- https://reworkbyrampjet.com/tools/ — Tools built for Rampjet's own use, some free and some paid, not yet released.
+- https://reworkbyrampjet.com/insights/ — Short practical writing on running an industrial company that doesn't stop when the owner is out.
+
+## Contact
+
+- Site: https://reworkbyrampjet.com/
+- Contact: via the booking form at https://reworkbyrampjet.com/#book

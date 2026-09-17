@@ -1,0 +1,6 @@
+# reworkbyrampjet.com
+User-agent: *
+Allow: /
+
+# Internal docs are excluded from the build (see _config.yml), not just hidden here.
+Sitemap: https://reworkbyrampjet.com/sitemap.xml
